@@ -1,6 +1,7 @@
 [
   {
     "name": "Oddities",
+    "icon": "oddities",
     "phase": 0,
     "programs": [
       {"title": "Design for Dreaming", "item": "Designfo1956", "file": "Designfo1956.mp4", "seconds": 556.79},
@@ -13,6 +14,7 @@
   },
   {
     "name": "Space",
+    "icon": "space",
     "phase": 601,
     "programs": [
       {"title": "Apollo 11", "item": "Apollo11", "file": "161993main_06c_ArriveMoon_512kb.mp4", "seconds": 407.40},
@@ -25,6 +27,7 @@
   },
   {
     "name": "Toons",
+    "icon": "toons",
     "phase": 1423,
     "programs": [
       {"title": "Superman", "item": "superman_1941", "file": "superman_1941_512kb.mp4", "seconds": 620.78},
@@ -34,11 +37,13 @@
       {"title": "Betty Boop: Stop That Noise", "item": "bb_stop_that_noise", "file": "bb_stop_that_noise_512kb.mp4", "seconds": 542.44},
       {"title": "Popeye: Assault and Flattery", "item": "Popeye_Assault_and_Flattery_1956", "file": "Popeye_Assault_and_Flattery_512kb.mp4", "seconds": 388.26},
       {"title": "Betty Boop's Ker-Choo", "item": "Betty_Boops_Ker-Cho_1932", "file": "Betty_Boops_Ker-Cho_1932_512kb.mp4", "seconds": 380.61},
-      {"title": "Popeye: Window Washer", "item": "Popeye_ThePanelessWindowWasher", "file": "Popeye_ThePanelessWindowWasher_512kb.mp4", "seconds": 364.77}
+      {"title": "Popeye: Window Washer", "item": "Popeye_ThePanelessWindowWasher", "file": "Popeye_ThePanelessWindowWasher_512kb.mp4", "seconds": 364.77},
+      {"title": "Betty Boop: Snow White", "item": "bb_snow_white", "file": "bb_snow_white_512kb.mp4", "seconds": 424.08}
     ]
   },
   {
     "name": "In Motion",
+    "icon": "in-motion",
     "phase": 2087,
     "programs": [
       {"title": "Trip Down Market Street", "item": "TripDown1905", "file": "TripDown1905.mp4", "seconds": 832.80},
@@ -47,6 +52,112 @@
       {"title": "The Big Train, Part I", "item": "BigTrain1950", "file": "BigTrain1950.mp4", "seconds": 778.18},
       {"title": "The Big Train, Part II", "item": "BigTrain1950_2", "file": "BigTrain1950_2.mp4", "seconds": 796.30},
       {"title": "The Bus Driver", "item": "BusDrive1946", "file": "BusDrive1946.mp4", "seconds": 602.24}
+    ]
+  },
+  {
+    "name": "Retro Tech",
+    "icon": "retro-tech",
+    "phase": 3217,
+    "credit": "Computer Chronicles (Stewart Cheifet) · CC BY-NC-ND 2.0",
+    "programs": [
+      {"title": "Windows 95", "item": "Windows4", "file": "Windows4.mp4", "seconds": 1478.51},
+      {"title": "The Ultimate Gamer's PC", "item": "CC1851ULTIMATE", "file": "CC1851ULTIMATE.mp4", "seconds": 1666.47},
+      {"title": "Cyber Cafes", "item": "CyberCaf", "file": "CyberCaf.mp4", "seconds": 1554.25},
+      {"title": "Computers Without Keyboards", "item": "Computer2000", "file": "Computer2000.mp4", "seconds": 1689.92},
+      {"title": "Creating Your Own Website", "item": "MyWebsit98", "file": "MyWebsit98.mp4", "seconds": 1675.44},
+      {"title": "Information Overload", "item": "Informat96", "file": "Informat96.mp4", "seconds": 1569.07},
+      {"title": "Digital Living Room", "item": "DigitalL98", "file": "DigitalL98.mp4", "seconds": 1701.67},
+      {"title": "Personal CAD", "item": "CC526_personal_cad", "file": "CC526_personal_cad.mp4", "seconds": 1745.08},
+      {"title": "Mobile Computing", "item": "MobileCo", "file": "MobileCo.mp4", "seconds": 1555.15}
+    ]
+  },
+  {
+    "name": "Field Notes",
+    "icon": "field-notes",
+    "phase": 5381,
+    "programs": [
+      {"title": "Patterns of the Wild", "item": "PatternsOfTheWild", "file": "PatternsOfTheWild.mp4", "seconds": 1610.86},
+      {"title": "After the Whale", "item": "gov.archives.arc.5792", "file": "gov.archives.arc.5792_512kb.mp4", "seconds": 1700.13},
+      {"title": "Refuges Alaska", "item": "gov.archives.arc.5833", "file": "gov.archives.arc.5833_512kb.mp4", "seconds": 1189.19},
+      {"title": "Legacy for Wings", "item": "gov.archives.arc.13407", "file": "gov.archives.arc.13407_512kb.mp4", "seconds": 1782.22},
+      {"title": "Cougar Footage", "item": "car_000076", "file": "car_000076_access.HD.mp4", "seconds": 616.65}
+    ]
+  },
+  {
+    "name": "Westerns",
+    "icon": "westerns",
+    "phase": 7891,
+    "programs": [
+      {"title": "Santa Fe Trail", "item": "Santa_Fe_Trail_movie", "file": "Santa_Fe_Trail_512kb.mp4", "seconds": 6578.39},
+      {"title": "Riders of Destiny", "item": "RidersofDestiny_", "file": "RidersofDestiny_512kb.mp4", "seconds": 3165.48},
+      {"title": "Under Western Stars", "item": "UnderWesternStars", "file": "UnderWesternStars_512kb.mp4", "seconds": 3881.68},
+      {"title": "The Great Train Robbery (1903)", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d7/The_Great_Train_Robbery_%281903%29.webm/The_Great_Train_Robbery_%281903%29.webm.480p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:The_Great_Train_Robbery_(1903).webm", "credit": "Edwin S. Porter · Wikimedia Commons · Public domain", "seconds": 807.709},
+      {"title": "The Kansan", "item": "TheKansan", "file": "TheKansan_512kb.mp4", "seconds": 4720.68},
+      {"title": "McLintock!", "item": "mclintok_widescreen", "file": "McLintock_512kb.mp4", "seconds": 7607.21},
+      {"title": "Cattle Stampede", "item": "CattleStampede", "file": "CattleStampede_512kb.mp4", "seconds": 3395.48}
+    ]
+  },
+  {
+    "name": "Film Noir",
+    "icon": "film-noir",
+    "phase": 9211,
+    "programs": [
+      {"title": "The Big Combo", "item": "The_Big_Combo_1955", "file": "Big_Combo_1955.mp4", "seconds": 5248.29},
+      {"title": "Detour", "item": "Detour", "file": "Detour_512kb.mp4", "seconds": 4058.32},
+      {"title": "Impact", "item": "Impact_1949", "file": "Impact_512kb.mp4", "seconds": 6657.04},
+      {"title": "D.O.A.", "item": "doa_ipod", "file": "doa_512kb.mp4", "seconds": 4989.79},
+      {"title": "The Hitch-Hiker", "item": "Hitch_Hiker", "file": "Hitch-Hiker_512kb.mp4", "seconds": 4247.85},
+      {"title": "The Stranger", "item": "TheStranger_0", "file": "The_Stranger_512kb.mp4", "seconds": 5472.94}
+    ]
+  },
+  {
+    "name": "Sci-Fi",
+    "icon": "sci-fi",
+    "phase": 11239,
+    "programs": [
+      {"title": "Captain Video (1949)", "item": "captainvideo", "file": "captainvideo.mp4", "seconds": 1722.48},
+      {"title": "First Spaceship on Venus", "item": "FirstSpaceshipOnVenusMPEG", "file": "First_Spaceship_On_Venus_512kb.mp4", "seconds": 4711.54},
+      {"title": "The Phantom Planet", "item": "ThePhantomPlanet", "file": "ThePhantomPlanetPresentedByMoviePowder_512kb.mp4", "seconds": 4924.60},
+      {"title": "Captain Video: Lost Episode", "item": "Captain_Video-3", "file": "Captain-Video-3_512kb.mp4", "seconds": 1693.93},
+      {"title": "Teenagers From Outer Space", "item": "TeenagersFromOuterSpace", "file": "TeenagersFromOuterSpace_512kb.mp4", "seconds": 5128.92}
+    ]
+  },
+  {
+    "name": "Silent Film",
+    "icon": "silent-comedy",
+    "phase": 13417,
+    "programs": [
+      {"title": "One Week", "item": "OneWeek", "file": "One_Week_512kb.mp4", "seconds": 1336.80},
+      {"title": "The Boat", "item": "TheBoat", "file": "The_Boat_512kb.mp4", "seconds": 1607.94},
+      {"title": "Three's a Crowd (1927)", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/81/Three%27s_A_Crowd_%281927%29.webm/Three%27s_A_Crowd_%281927%29.webm.480p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:Three%27s_A_Crowd_(1927).webm", "credit": "Harry Langdon · Wikimedia Commons · Public domain", "seconds": 3722.018},
+      {"title": "Cops", "item": "Cops", "file": "cops_512kb.mp4", "seconds": 1084.80},
+      {"title": "The Gold Rush (1925)", "item": "the-gold-rush-film-1925", "file": "The-Gold-Rush-1925.mp4", "seconds": 5194.88}
+    ]
+  },
+  {
+    "name": "Newsreels",
+    "icon": "newsreels",
+    "phase": 15241,
+    "programs": [
+      {"title": "Huge Throngs Welcome Balbo", "item": "1933-07-17_Huge_Throngs_Welcome_Balbo", "file": "1933-07-17_Huge_Throngs_Welcome_Balbo.mp4", "seconds": 93.26},
+      {"title": "USS Panay: Special Issue", "item": "1937-12-12_Bombing_of_USS_Panay", "file": "1937-12-12_Bombing_of_USS_Panay_512kb.mp4", "seconds": 1313.25},
+      {"title": "Attlee Here for Parley", "item": "1945-11-13_Attlee_Here_For_Parley", "file": "1945-11-13_Attlee_Here_For_Parley.mp4", "seconds": 270.04},
+      {"title": "Universal Newsreel: 28 November 1963", "item": "UniversalNewsreelVolume36Release9711-28-1963", "file": "Universal Newsreel Volume 36 Release 97 11-28-1963.mp4", "seconds": 538.73},
+      {"title": "Tokyo Olympics Opening Ceremony", "item": "1964-10-12_Tokyo_Winter_Olympics", "file": "1964-10-12_Tokyo_Winter_Olympics.mp4", "seconds": 118.80}
+    ]
+  },
+  {
+    "name": "Classroom",
+    "icon": "classroom",
+    "phase": 16729,
+    "programs": [
+      {"title": "Good Eating Habits", "item": "GoodEati1951", "file": "GoodEati1951.mp4", "seconds": 585.52},
+      {"title": "How to Be Well Groomed", "item": "HowtoBeW1949", "file": "HowtoBeW1949.mp4", "seconds": 640.97},
+      {"title": "Good Table Manners", "item": "GoodTabl1951", "file": "GoodTabl1951.mp4", "seconds": 619.99},
+      {"title": "Why Study Science?", "item": "WhyStudy1955_2", "file": "WhyStudy1955_2.mp4", "seconds": 709.81},
+      {"title": "The Flow of Heat, Part I", "item": "Sciencei1956_11", "file": "Sciencei1956_11.mp4", "seconds": 861.76},
+      {"title": "The Flow of Heat, Part II", "item": "Sciencei1956_12", "file": "Sciencei1956_12.mp4", "seconds": 656.76},
+      {"title": "Facts About Film", "item": "FactsAboutFi", "file": "FactsAboutFi.mp4", "seconds": 602.60}
     ]
   }
 ]

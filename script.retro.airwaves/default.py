@@ -36,7 +36,9 @@ def play_channel(channel, monitor):
         item = xbmcgui.ListItem(label=program['title'], path=url, offscreen=True)
         tag = item.getVideoInfoTag()
         tag.setTitle(program['title'])
-        tag.setPlot(f"{channel['name']} · Internet Archive: {program['item']}")
+        credit = program.get('credit', channel.get('credit', 'Internet Archive'))
+        source = program['source_page'] if 'url' in program else f"https://archive.org/details/{program['item']}"
+        tag.setPlot(f"{channel['name']} · {credit}\n{source}")
         item.setProperty('StartOffset', f'{now - slot.starts_at:.3f}')
         player.started = False
         player.outcome = None

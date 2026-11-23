@@ -24,6 +24,8 @@ def tune(channel, now):
 
 
 def media_url(program):
+    if 'url' in program:
+        return program['url']
     item = quote(program['item'], safe='')
     filename = quote(program['file'], safe='')
     return f'https://archive.org/download/{item}/{filename}'

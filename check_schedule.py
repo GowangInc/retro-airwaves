@@ -25,6 +25,14 @@ def main():
             assert just_after.program == next_program and abs(just_after.starts_at - cut) < 0.001
             anchor = cut
         assert tune(channel, EPOCH - channel['phase'] - 0.25).program == programs[-1]
+    urls = [media_url(p) for c in channels for p in c['programs']]
+    assert len(set(urls)) == len(urls), 'A stream is scheduled more than once'
+    for channel in channels:
+        icon = addon / 'resources/skins/default/media/channels' / f"{channel['icon']}.png"
+        assert icon.is_file() and icon.stat().st_size <= 4096, icon
+        for program in channel['programs']:
+            if 'url' in program:
+                assert media_url(program).startswith('https://') and program['source_page'].startswith('https://')
     assert media_url({'item': 'old films', 'file': 'clip #1.mp4'}) == 'https://archive.org/download/old%20films/clip%20%231.mp4'
     print(f'Schedule cutovers, wraparound and stream URLs: {len(channels)} channels passed')
 
