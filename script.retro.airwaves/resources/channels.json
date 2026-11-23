@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Oddities",
+    "phase": 0,
+    "programs": [
+      {"title": "Design for Dreaming", "item": "Designfo1956", "file": "Designfo1956.mp4", "seconds": 556.79},
+      {"title": "A Date With Your Family", "item": "DateWith1950", "file": "DateWith1950.mp4", "seconds": 600.13},
+      {"title": "Test Tube Tale", "item": "TestTube1941", "file": "TestTube1941.mp4", "seconds": 566.20},
+      {"title": "Dating: Do's and Don'ts", "item": "DatingDo1949", "file": "DatingDo1949.mp4", "seconds": 745.41},
+      {"title": "As We Like It", "item": "AsWeLikeIt", "file": "AsWeLikeIt.mp4", "seconds": 612.60},
+      {"title": "Chevrolet Sales Musical", "item": "Chevrole1954", "file": "Chevrole1954.mp4", "seconds": 915.15}
+    ]
+  },
+  {
+    "name": "Space",
+    "phase": 601,
+    "programs": [
+      {"title": "Apollo 11", "item": "Apollo11", "file": "161993main_06c_ArriveMoon_512kb.mp4", "seconds": 407.40},
+      {"title": "Skylab: The First 40 Days", "item": "Skylab_TheFirst40Days", "file": "Skylab.mp4", "seconds": 1363.76},
+      {"title": "Apollo 17", "item": "Apollo17-OnTheShouldersOfGiants", "file": "Apollo17.mp4", "seconds": 1708.76},
+      {"title": "Space Flight: Orbits", "item": "gov.ntis.ava18245vnb1", "file": "ava18245vnb1_512kb.mp4", "seconds": 2162.63},
+      {"title": "Return to the Moon: LCROSS", "item": "NASA-LCROSS-Overview", "file": "NASA-LCROSS-Overview_512kb.mp4", "seconds": 268.20},
+      {"title": "Kepler: Habitable Planets", "item": "Kepler_A_Search_For_Habitable_Planets", "file": "NASA-Kepler-Overview_512kb.mp4", "seconds": 449.75}
+    ]
+  },
+  {
+    "name": "Toons",
+    "phase": 1423,
+    "programs": [
+      {"title": "Superman", "item": "superman_1941", "file": "superman_1941_512kb.mp4", "seconds": 620.78},
+      {"title": "Betty Boop: Poor Cinderella", "item": "bb_poor_cinderella", "file": "bb_poor_cinderella_512kb.mp4", "seconds": 621.12},
+      {"title": "Popeye: Greek Mirthology", "item": "Popeye_Greek_Mirthology_1954", "file": "Popeye_Greek_Mirthology_512kb.mp4", "seconds": 401.70},
+      {"title": "Felix the Cat: Bold King Cole", "item": "Felix_BoldKingCole", "file": "Felix_BoldKingCole_512kb.mp4", "seconds": 440.47},
+      {"title": "Betty Boop: Stop That Noise", "item": "bb_stop_that_noise", "file": "bb_stop_that_noise_512kb.mp4", "seconds": 542.44},
+      {"title": "Popeye: Assault and Flattery", "item": "Popeye_Assault_and_Flattery_1956", "file": "Popeye_Assault_and_Flattery_512kb.mp4", "seconds": 388.26},
+      {"title": "Betty Boop's Ker-Choo", "item": "Betty_Boops_Ker-Cho_1932", "file": "Betty_Boops_Ker-Cho_1932_512kb.mp4", "seconds": 380.61},
+      {"title": "Popeye: Window Washer", "item": "Popeye_ThePanelessWindowWasher", "file": "Popeye_ThePanelessWindowWasher_512kb.mp4", "seconds": 364.77}
+    ]
+  },
+  {
+    "name": "In Motion",
+    "phase": 2087,
+    "programs": [
+      {"title": "Trip Down Market Street", "item": "TripDown1905", "file": "TripDown1905.mp4", "seconds": 832.80},
+      {"title": "Highballing to Victory", "item": "Highball1944", "file": "Highball1944.mp4", "seconds": 701.54},
+      {"title": "Three to Get Ready", "item": "ThreetoG1967", "file": "ThreetoG1967.mp4", "seconds": 821.66},
+      {"title": "The Big Train, Part I", "item": "BigTrain1950", "file": "BigTrain1950.mp4", "seconds": 778.18},
+      {"title": "The Big Train, Part II", "item": "BigTrain1950_2", "file": "BigTrain1950_2.mp4", "seconds": 796.30},
+      {"title": "The Bus Driver", "item": "BusDrive1946", "file": "BusDrive1946.mp4", "seconds": 602.24}
+    ]
+  }
+]

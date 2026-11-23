@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <control type="image">
+            <left>0</left><top>0</top><width>1920</width><height>1080</height>
+            <texture>airwaves-panel.png</texture>
+        </control>
+        <control type="label" id="9010">
+            <left>1364</left><top>162</top><width>382</width><height>48</height>
+            <font>font13</font><textcolor>FFFFED8A</textcolor><align>right</align>
+        </control>
+        <control type="label" id="9011">
+            <left>1364</left><top>207</top><width>382</width><height>40</height>
+            <font>font13</font><textcolor>FFF0D9FC</textcolor><align>right</align>
+        </control>
+        <control type="list" id="9000">
+            <left>90</left><top>444</top><width>1740</width><height>460</height>
+            <onup>9000</onup><ondown>9000</ondown>
+            <itemlayout width="1740" height="115">
+                <control type="label"><left>29</left><top>0</top><width>70</width><height>111</height><font>font13</font><textcolor>FFFFE56C</textcolor><label>$INFO[ListItem.Property(Number)]</label></control>
+                <control type="label"><left>98</left><top>0</top><width>220</width><height>111</height><font>font13</font><textcolor>FFFFE56C</textcolor><label>$INFO[ListItem.Label]</label></control>
+                <control type="label"><left>363</left><top>23</top><width>610</width><height>40</height><font>font13</font><textcolor>FFF7F1FF</textcolor><label>$INFO[ListItem.Label2]</label></control>
+                <control type="label"><left>363</left><top>65</top><width>610</width><height>26</height><font>font13</font><textcolor>FFBBBDEA</textcolor><label>$INFO[ListItem.Property(Since),SINCE ]</label></control>
+                <control type="label"><left>1040</left><top>23</top><width>660</width><height>40</height><font>font13</font><textcolor>FFF7F1FF</textcolor><label>$INFO[ListItem.Property(UpNext)]</label></control>
+                <control type="label"><left>1040</left><top>65</top><width>660</width><height>26</height><font>font13</font><textcolor>FFBBBDEA</textcolor><label>$INFO[ListItem.Property(NextAt),AT ]</label></control>
+            </itemlayout>
+            <focusedlayout width="1740" height="115">
+                <control type="image"><left>0</left><top>1</top><width>1740</width><height>109</height><texture>airwaves-focus.png</texture></control>
+                <control type="label"><left>29</left><top>0</top><width>70</width><height>111</height><font>font13</font><textcolor>FFFFF1A1</textcolor><label>$INFO[ListItem.Property(Number)]</label></control>
+                <control type="label"><left>98</left><top>0</top><width>220</width><height>111</height><font>font13</font><textcolor>FFFFF1A1</textcolor><label>$INFO[ListItem.Label]</label></control>
+                <control type="label"><left>363</left><top>23</top><width>610</width><height>40</height><font>font13</font><textcolor>FFFFFFFF</textcolor><label>$INFO[ListItem.Label2]</label></control>
+                <control type="label"><left>363</left><top>65</top><width>610</width><height>26</height><font>font13</font><textcolor>FFE8DCF9</textcolor><label>$INFO[ListItem.Property(Since),SINCE ]</label></control>
+                <control type="label"><left>1040</left><top>23</top><width>660</width><height>40</height><font>font13</font><textcolor>FFFFFFFF</textcolor><label>$INFO[ListItem.Property(UpNext)]</label></control>
+                <control type="label"><left>1040</left><top>65</top><width>660</width><height>26</height><font>font13</font><textcolor>FFE8DCF9</textcolor><label>$INFO[ListItem.Property(NextAt),AT ]</label></control>
+            </focusedlayout>
+        </control>
+    </controls>
+</window>
