@@ -8,9 +8,11 @@ Retro Airwaves is an independent alternative to [Spelunkr](https://spelunkr.tv/a
 
 ## Watch in a browser
 
+[Watch Retro Airwaves on GitHub Pages](https://gowanginc.github.io/retro-airwaves/web/). No Kodi installation is needed.
+
 ![Browser guide with a live channel timeline and program details](screenshots/browser-guide.jpg)
 
-Serve the repository root with any static HTTP server and open `/web/`. Choose a channel to join the program already in progress. The browser streams directly from the archives; if a stream is unavailable, use the program source link or try another channel. No Kodi installation is needed.
+Choose a channel to join the program already in progress. The browser streams directly from the archives; if a stream is unavailable, use the program source link or try another channel.
 
 The browser guide shows a scrollable timeline and a program card with upcoming titles. Click a channel or an on-air listing to watch. Use **Now** to return to the current time, or filter by genre and search by title. **Catch up** plays at 1.25× until you reach live; **Go live** skips to the current position. **Watch elsewhere** offers a VLC playlist and an XMLTV guide.
 
@@ -35,6 +37,8 @@ Channels 19–23 are **Fright Night** (classic horror), **Strange Tales** (scrip
 Playback example: [Superman (1941)](https://archive.org/details/superman_1941), marked public domain by the Internet Archive item.
 
 ## Develop
+
+To self-host the browser viewer, serve the repository root with a static HTTP server and open `/web/`.
 
 The lineup is in `script.retro.airwaves/resources/channels.json`. For Internet Archive entries, see `https://archive.org/details/<item>` for the source and rights information. Direct streams instead carry `url` and `source_page` fields. Use the exact stream duration in seconds; editing durations or order changes the UTC schedule for that channel. Channel badges are 96×96 indexed PNGs under `resources/skins/default/media/channels/`.
 
