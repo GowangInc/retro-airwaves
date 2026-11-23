@@ -4,194 +4,1108 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
-<title>Retro Airwaves · Live Guide</title>
+<meta name="theme-color" content="#191235">
+<title>Retro Airwaves · TV Guide</title>
 <style>
-  :root { color-scheme: dark; --gold: #ffe88a; --ink: #191235; --panel: #1c2455; --line: #8274ae; --muted: #d7ceed; }
+  :root {
+    color-scheme: dark;
+    --gold: #ffe88a; --ink: #140e2c; --ink-2: #191235; --panel: #1c2455; --panel-2: #222b5e;
+    --line: #5d5592; --line-hi: #8274ae; --muted: #c9c0e4; --dim: #9a92bf; --hot: #52377b; --red: #ff5f5f;
+    --kids: #5fd38a; --movies: #ef6aa6; --series: #5aa2f0; --news: #f0a35e; --science: #4fd0c4; --vintage: #f6d65a;
+    --chan-w: 13.5rem; --row-h: 3.6rem; --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --stripe: linear-gradient(90deg, #b48ef0 0 14.28%, #7d6ce8 0 28.56%, #4f7fd8 0 42.84%, #4fb5c9 0 57.12%, #ffe066 0 71.4%, #f0a35e 0 85.68%, #e8609c 0);
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; min-height: 100vh; color: #fff; background: linear-gradient(#211340, #26193d 55%, #673221) fixed; font: 1rem/1.45 system-ui, sans-serif; }
-  main { max-width: 94rem; margin: auto; padding: clamp(1rem, 3vw, 2.5rem); }
-  .masthead, .player { padding: clamp(1rem, 2vw, 1.5rem); background: var(--ink); border: 1px solid var(--line); }
-  .masthead { display: flex; flex-wrap: wrap; gap: .5rem 2rem; align-items: end; justify-content: space-between; border-top: .3rem solid #ba85d0; }
-  h1 { margin: 0; color: var(--gold); font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.05; text-transform: uppercase; letter-spacing: .035em; }
-  .eyebrow, .clock, th, .number, .time { font-family: ui-monospace, monospace; }
-  .eyebrow, .clock { margin: .4rem 0 0; color: var(--muted); }
-  .clock { color: var(--gold); }
-  .layout { display: grid; gap: 1rem; margin-top: 1rem; }
-  .player { min-width: 0; align-self: start; }
-  .player h2 { margin: 0; font-size: 1.2rem; }
-  video { display: block; width: 100%; max-height: 52vh; margin-top: .8rem; background: #090713; }
-  [hidden] { display: none; }
+  html { background: #1a1036; }
+  body { margin: 0; min-height: 100vh; color: #fff; background: linear-gradient(#211340, #26193d 55%, #5a2c22) fixed; font: 1rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  [hidden] { display: none !important; }
   a { color: var(--gold); }
-  .guide { overflow: auto; min-width: 0; border: 1px solid var(--line); }
-  table { width: 100%; border-collapse: collapse; min-width: 44rem; table-layout: fixed; }
-  th, td { text-align: left; vertical-align: top; border: 1px solid #6873a5; padding: .48rem .65rem; }
-  thead { color: var(--gold); background: var(--ink); }
-  th:first-child { width: 24%; }
-  tbody tr { background: var(--panel); }
-  tbody tr:nth-child(even) { background: #242c5d; }
-  tbody tr:focus-within, tbody tr[data-selected] { background: #52377b; }
-  .pick { display: flex; gap: .55rem; align-items: baseline; min-height: 2rem; width: 100%; padding: .2rem 0; border: 0; color: var(--gold); background: transparent; text-align: left; font: inherit; cursor: pointer; }
-  .pick:hover { text-decoration: underline; }
-  .number, .time { font-size: .82rem; }
-  .time { display: block; color: var(--muted); }
+  button { font: inherit; color: inherit; }
   :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  @media (min-width: 73rem) {
-    .layout { grid-template-columns: minmax(44rem, 2fr) minmax(19rem, 1fr); }
-    .player { position: sticky; top: 1rem; grid-area: 1 / 2; }
-    .guide { grid-area: 1 / 1; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .mono { font-family: var(--mono); }
+  main { max-width: 110rem; margin: auto; padding: clamp(.6rem, 2vw, 1.6rem); display: grid; grid-template-columns: minmax(0, 1fr); gap: .9rem; }
+
+  /* ── Masthead ───────────────────────────────── */
+  .masthead { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1.25rem; align-items: center; padding: .85rem 1.2rem; background: var(--ink-2); border: 1px solid var(--line); border-top: .3rem solid #ba85d0; }
+  .brand { display: grid; gap: .3rem; }
+  .brand::before { content: ""; display: block; width: 11rem; height: .35rem; background: var(--stripe); }
+  h1 { margin: 0; color: var(--gold); font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1; text-transform: uppercase; letter-spacing: .04em; font-weight: 800; }
+  .tagline { margin: 0; color: var(--muted); font: .78rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+  .ticker { min-width: 0; overflow: hidden; border: 1px solid var(--line); background: #0f0a24; height: 2.3rem; display: flex; align-items: center; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+  .ticker-track { display: flex; width: max-content; animation: ticker 140s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-track span { white-space: nowrap; padding-right: 3rem; font: .85rem var(--mono); color: var(--muted); }
+  .ticker-track b { color: var(--gold); font-weight: 600; }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  .onair { text-align: right; font-family: var(--mono); padding: .45rem .8rem; border: 1px solid var(--line-hi); background: #120c2a; min-width: 11rem; }
+  .onair-label { display: flex; justify-content: space-between; gap: 1rem; color: var(--gold); font-size: .75rem; letter-spacing: .15em; }
+  .onair-label::after { content: ""; width: .6rem; height: .6rem; border-radius: 50%; background: var(--red); box-shadow: 0 0 .5rem var(--red); align-self: center; animation: blink 2s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+  #clock { display: block; font-size: 1.7rem; line-height: 1.1; color: #fff; }
+  #date { display: block; font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ── Stage: screen + info card ──────────────── */
+  .stage { display: grid; gap: .9rem; grid-template-columns: minmax(0, 1.65fr) minmax(19rem, 1fr); align-items: stretch; }
+  .monitor { background: var(--ink-2); border: 1px solid var(--line); padding: .7rem; display: grid; gap: .55rem; min-width: 0; }
+  .screen { position: relative; aspect-ratio: 16 / 9; background: #07050f; overflow: hidden; border-radius: .35rem; container-type: inline-size; }
+  .screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+  .screen.crt { border-radius: 1.6rem / 1.2rem; }
+  .screen.crt video { filter: saturate(1.15) contrast(1.08) brightness(1.05); }
+  .screen.crt::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 4;
+    background: repeating-linear-gradient(transparent 0 2px, rgba(0,0,0,.28) 2px 3px), radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,.6) 100%);
+    box-shadow: inset 0 0 4rem rgba(0,0,0,.65); }
+  .screen:fullscreen { border-radius: 0; aspect-ratio: auto; }
+  canvas.static { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; opacity: 0; transition: opacity .25s; z-index: 2; pointer-events: none; }
+  .screen.tuning canvas.static, .screen.idle canvas.static, .screen.lost canvas.static { opacity: .28; }
+  .card { position: absolute; inset: 0; z-index: 3; display: grid; place-content: center; text-align: center; gap: .5rem; padding: 1.5rem; pointer-events: none; }
+  .card > * { pointer-events: auto; }
+  .card-msg { margin: 0; padding: .55rem 1rem; background: rgba(10, 6, 30, .82); border: 1px solid var(--line-hi); font: clamp(.8rem, 2.4cqi, 1.15rem) var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+  .card-sub { margin: 0; font-size: clamp(.78rem, 2cqi, .95rem); color: var(--muted); text-shadow: 0 1px 2px #000; }
+  .card .btn { justify-self: center; }
+  .osd { position: absolute; top: 4.5%; right: 3.5%; z-index: 5; display: flex; align-items: center; gap: .6rem; font-family: var(--mono); color: #7dff9b; text-shadow: 0 0 .4rem rgba(80, 255, 130, .7), 2px 2px 0 #000; font-size: clamp(1.1rem, 5cqi, 2.6rem); opacity: 0; transition: opacity .4s; pointer-events: none; }
+  .osd small { font-size: .45em; letter-spacing: .1em; }
+  .osd.show, .screen:hover .osd.bug { opacity: 1; }
+  .osd.bug { opacity: .55; font-size: clamp(.8rem, 2.4cqi, 1.1rem); }
+  .lower-third { position: absolute; left: 3.5%; right: 3.5%; bottom: 6%; z-index: 5; display: grid; grid-template-columns: auto 1fr; background: rgba(12, 8, 34, .88); border: 1px solid var(--line-hi); border-left: .35rem solid var(--gold); transform: translateY(140%); opacity: 0; transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s; pointer-events: none; font-size: clamp(.7rem, 2.1cqi, 1rem); }
+  .lower-third.show { transform: none; opacity: 1; }
+  .lt-chan { display: grid; place-content: center; padding: .4rem .9rem; background: var(--hot); font: 700 1.6em var(--mono); color: var(--gold); }
+  .lt-body { padding: .45rem .8rem; min-width: 0; }
+  .lt-now { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lt-next { color: var(--muted); font: .85em var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .numentry { position: absolute; top: 4.5%; left: 3.5%; z-index: 6; font: clamp(1.4rem, 7cqi, 3.4rem) var(--mono); color: #7dff9b; text-shadow: 0 0 .5rem rgba(80,255,130,.7), 3px 3px 0 #000; }
+
+  .transport { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.2rem; padding: .3rem .7rem; border: 1px solid var(--line-hi); background: var(--panel); color: #fff; cursor: pointer; font: .82rem var(--mono); letter-spacing: .04em; text-transform: uppercase; text-decoration: none; border-radius: .2rem; }
+  .btn:hover { background: var(--hot); }
+  .btn[aria-pressed="true"] { background: var(--hot); border-color: var(--gold); color: var(--gold); }
+  .btn.primary { background: var(--gold); color: var(--ink); border-color: var(--gold); font-weight: 700; }
+  .btn.primary:hover { background: #fff3b8; }
+  .btn.icon { min-width: 2.2rem; justify-content: center; padding: .3rem .5rem; }
+  .btn svg { width: 1em; height: 1em; fill: currentColor; }
+  .spacer { flex: 1; }
+  .vol { width: 6rem; accent-color: var(--gold); }
+  .live { display: inline-flex; align-items: center; gap: .4rem; font: .8rem var(--mono); letter-spacing: .08em; padding: .3rem .6rem; border: 1px solid var(--line); text-transform: uppercase; }
+  .live::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--dim); }
+  .live[data-state="live"] { color: #ffd0d0; border-color: #a24b5d; }
+  .live[data-state="live"]::before { background: var(--red); box-shadow: 0 0 .4rem var(--red); }
+  .live[data-state="behind"] { color: var(--gold); border-color: var(--gold); }
+  .live[data-state="behind"]::before { background: var(--gold); }
+  .live[data-state="catching"]::before { background: #7dff9b; animation: blink .6s steps(1) infinite; }
+
+  .info { background: var(--ink-2); border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
+  .info-head { display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: center; padding: .8rem 1rem; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(82,55,123,.6), transparent); }
+  .badge { width: 3rem; height: 3rem; image-rendering: pixelated; }
+  .info-chan { font: .8rem var(--mono); color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+  .info-state { font: 700 .72rem var(--mono); letter-spacing: .14em; color: var(--gold); text-transform: uppercase; }
+  .info-state.on { color: #ff9a9a; }
+  .info-body { padding: .9rem 1rem 1rem; display: grid; gap: .65rem; align-content: start; flex: 1; overflow: auto; }
+  .info h2 { margin: 0; font-size: clamp(1.25rem, 2.1vw, 1.7rem); line-height: 1.15; color: var(--gold); }
+  .chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .chip { font: .72rem var(--mono); padding: .12rem .45rem; border: 1px solid var(--line-hi); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .chip.genre { border-color: var(--g, var(--line-hi)); color: var(--g, var(--muted)); }
+  .times { font: .9rem var(--mono); color: #fff; }
+  .progress { height: .4rem; background: #0e0a22; border: 1px solid var(--line); }
+  .progress > i { display: block; height: 100%; width: var(--p, 0%); background: linear-gradient(90deg, var(--gold), #f0a35e); }
+  .blurb { margin: 0; color: #ece6ff; }
+  .hindsight { margin: 0; padding: .6rem .75rem; border-left: .3rem solid var(--news); background: rgba(240,163,94,.1); font-size: .92rem; }
+  .hindsight strong { display: block; font: 700 .72rem var(--mono); letter-spacing: .14em; color: var(--news); text-transform: uppercase; margin-bottom: .15rem; }
+  .credit { margin: 0; font-size: .8rem; color: var(--dim); }
+  .actions { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .upnext { margin: .2rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .upnext li { display: grid; grid-template-columns: 3.4rem 1fr; gap: .5rem; padding: .35rem 0; border-bottom: 1px dashed rgba(130,116,174,.35); font-size: .88rem; }
+  .upnext time { font-family: var(--mono); color: var(--muted); }
+  .upnext-h { margin: .2rem 0 0; font: .72rem var(--mono); letter-spacing: .14em; color: var(--dim); text-transform: uppercase; }
+
+  /* ── Guide toolbar ──────────────────────────── */
+  .guide { background: var(--ink-2); border: 1px solid var(--line); min-width: 0; }
+  .toolbar { position: relative; display: flex; flex-wrap: wrap; gap: .5rem .8rem; align-items: center; padding: .6rem .8rem; border-bottom: 1px solid var(--line); }
+  .toolbar h2 { margin: 0 .4rem 0 0; font: 700 1rem var(--mono); letter-spacing: .14em; color: var(--gold); text-transform: uppercase; }
+  .group { display: flex; gap: .3rem; flex-wrap: wrap; align-items: center; }
+  .filter { --g: var(--line-hi); border-color: var(--g); }
+  .filter::before { content: ""; width: .55rem; height: .55rem; background: var(--g); }
+  .filter[aria-pressed="true"] { background: color-mix(in srgb, var(--g) 28%, var(--panel)); color: #fff; border-color: var(--g); }
+  .search { display: flex; align-items: center; gap: .4rem; border: 1px solid var(--line-hi); background: #0f0a24; padding: 0 .55rem; min-height: 2.2rem; }
+  .search input { background: transparent; border: 0; color: #fff; font: .85rem var(--mono); width: 11rem; outline: none; }
+  .search:focus-within { outline: 2px solid var(--gold); outline-offset: 2px; }
+  details.menu summary { list-style: none; }
+  details.menu summary::-webkit-details-marker { display: none; }
+  .menu-panel { position: absolute; right: .8rem; top: calc(100% + .35rem); z-index: 30; width: min(22rem, calc(100% - 1.6rem)); padding: .8rem; background: #120c2a; border: 1px solid var(--gold); box-shadow: 0 .8rem 2rem rgba(0,0,0,.5); display: grid; gap: .5rem; font-size: .88rem; }
+  .menu-panel p { margin: 0; color: var(--muted); }
+  .menu-panel .btn { justify-content: flex-start; }
+
+  /* ── Grid ───────────────────────────────────── */
+  .scroller { position: relative; overflow: auto; max-height: min(72vh, 46rem); overscroll-behavior: contain; scrollbar-color: var(--line-hi) #0e0a22; }
+  .gridwrap { position: relative; width: calc(var(--chan-w) + var(--track-w)); }
+  .g-head, .g-row { display: grid; grid-template-columns: var(--chan-w) var(--track-w); }
+  .g-head { position: sticky; top: 0; z-index: 12; height: 2.2rem; background: #120c2a; border-bottom: 1px solid var(--line-hi); }
+  .g-corner { position: sticky; left: 0; z-index: 13; display: flex; align-items: center; padding: 0 .8rem; background: #120c2a; border-right: 1px solid var(--line-hi); font: .78rem var(--mono); color: var(--gold); letter-spacing: .08em; }
+  .g-times { position: relative; }
+  .g-times span { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; padding-left: .45rem; border-left: 1px solid var(--line); font: .8rem var(--mono); color: var(--muted); }
+  .g-times span.hour { color: #fff; }
+  .g-row { height: var(--row-h); border-bottom: 1px solid #2c2660; }
+  .g-row.tuned .g-chan { background: var(--hot); box-shadow: inset .3rem 0 0 var(--gold); }
+  .g-chan { position: sticky; left: 0; z-index: 10; display: grid; grid-template-columns: 2rem 2.2rem 1fr; gap: .45rem; align-items: center; padding: 0 .6rem; background: var(--panel); border: 0; border-right: 1px solid var(--line-hi); cursor: pointer; text-align: left; color: var(--gold); }
+  .g-chan:hover { background: #2d2f6c; }
+  .g-chan .num { font: .85rem var(--mono); color: var(--muted); }
+  .g-chan img { width: 2.2rem; height: 2.2rem; image-rendering: pixelated; }
+  .g-chan .name { font-weight: 600; font-size: .9rem; text-transform: uppercase; letter-spacing: .03em; line-height: 1.1; overflow: hidden; }
+  .g-chan .name small { display: block; font: .65rem var(--mono); color: var(--g); letter-spacing: .1em; margin-top: .15rem; }
+  .g-track { position: relative; background: repeating-linear-gradient(90deg, transparent 0 calc(var(--slot-w) - 1px), rgba(130,116,174,.18) 0 var(--slot-w)); }
+  .cell { position: absolute; top: 3px; bottom: 3px; display: flex; flex-direction: column; justify-content: center; gap: .1rem; min-width: 0; padding: 0 .5rem; overflow: hidden; border: 0; border-left: 3px solid var(--g); background: color-mix(in srgb, var(--g) 11%, #1d2453); color: #fff; text-align: left; cursor: pointer; white-space: nowrap; border-radius: 2px; }
+  .cell:hover { background: color-mix(in srgb, var(--g) 26%, #1d2453); }
+  .cell .t { font-size: .86rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+  .cell .m { font: .7rem var(--mono); color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+  .cell.narrow { padding: 0; }
+  .cell.narrow .t, .cell.narrow .m { display: none; }
+  .cell.past { opacity: .5; }
+  .cell.onair { background: color-mix(in srgb, var(--g) 22%, #2a2f6e); }
+  .cell.onair .m::before { content: "ON AIR · "; color: #ff9a9a; }
+  .cell.playing { box-shadow: inset 0 0 0 2px var(--gold); }
+  .cell.playing .t::before { content: "▶ "; color: var(--gold); }
+  .cell.reminded .t::after { content: " ⏰"; }
+  .cell.clip-l .t::before { content: "◂ "; color: var(--muted); }
+  .cell.match { outline: 2px solid #fff; outline-offset: -2px; background: color-mix(in srgb, var(--g) 38%, #1d2453); }
+  .cell[aria-selected="true"] { box-shadow: inset 0 0 0 2px #fff; }
+  .cell:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; z-index: 2; }
+  .past-mask { position: absolute; top: 2.2rem; bottom: 0; left: var(--chan-w); width: 0; background: rgba(8,5,20,.35); pointer-events: none; z-index: 5; }
+  .nowline { position: absolute; top: 0; bottom: 0; left: var(--chan-w); width: 2px; background: var(--red); box-shadow: 0 0 .5rem var(--red); z-index: 11; pointer-events: none; }
+  .nowline::before { content: "NOW"; position: absolute; top: .35rem; left: 50%; transform: translateX(-50%); padding: .05rem .3rem; background: var(--red); color: #fff; font: 700 .65rem var(--mono); letter-spacing: .1em; }
+  .g-row.filtered { display: none; }
+  .empty { padding: 1.5rem; text-align: center; color: var(--muted); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; padding: .55rem .9rem; border-top: 1px solid var(--line); font: .75rem var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .06em; }
+  .legend kbd { font: inherit; color: var(--gold); border: 1px solid var(--line); padding: 0 .3rem; margin-right: .3rem; }
+  footer { font-size: .78rem; color: var(--dim); text-align: center; padding-bottom: .5rem; }
+
+  .toasts { position: fixed; right: 1rem; bottom: 1rem; z-index: 50; display: grid; gap: .5rem; width: min(24rem, calc(100vw - 2rem)); }
+  .toast { display: grid; grid-template-columns: 1fr auto; gap: .6rem; align-items: center; padding: .7rem .8rem; background: #120c2a; border: 1px solid var(--gold); border-left: .35rem solid var(--gold); box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.5); font-size: .9rem; animation: toast-in .3s ease-out; }
+  @keyframes toast-in { from { transform: translateY(1rem); opacity: 0; } }
+
+  [data-genre="kids"] { --g: var(--kids); } [data-genre="movies"] { --g: var(--movies); } [data-genre="series"] { --g: var(--series); }
+  [data-genre="news"] { --g: var(--news); } [data-genre="science"] { --g: var(--science); } [data-genre="vintage"] { --g: var(--vintage); }
+
+  /* ── Prevue / TV mode ───────────────────────── */
+  body.tv main { max-width: none; height: 100vh; padding: .6rem; grid-template-rows: auto minmax(0, 1.25fr) minmax(0, 1fr); }
+  body.tv .stage { min-height: 0; grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 1fr); }
+  body.tv .monitor { min-height: 0; grid-template-rows: minmax(0, 1fr) auto; }
+  body.tv .screen { aspect-ratio: auto; min-height: 0; }
+  body.tv .guide { display: flex; flex-direction: column; min-height: 0; }
+  body.tv .toolbar .group:not(.tv-keep), body.tv .toolbar .search, body.tv .legend, body.tv footer, body.tv .transport .hide-tv { display: none; }
+  body.tv .scroller { max-height: none; flex: 1; scrollbar-width: none; }
+
+  @media (max-width: 68rem) {
+    .stage { grid-template-columns: 1fr; }
+    .masthead { grid-template-columns: minmax(0, 1fr) auto; }
+    .ticker { grid-column: 1 / -1; grid-row: 2; }
+    body.tv .stage { grid-template-columns: 1fr; }
+    body.tv .info { display: none; }
+  }
+  @media (max-width: 40rem) {
+    :root { --chan-w: 5.6rem; --row-h: 4.5rem; }
+    .masthead { gap: .65rem; padding: .65rem; }
+    .brand::before { max-width: 100%; }
+    .onair { min-width: 0; padding: .4rem .5rem; }
+    .g-chan { grid-template-columns: 1fr; justify-items: center; gap: 0; padding: .2rem; text-align: center; }
+    .g-chan .name { font-size: .66rem; }
+    .g-chan .name small { display: none; }
+    .g-chan img { width: 1.6rem; height: 1.6rem; }
+    .search input { width: 8rem; }
+    .vol { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track, .onair-label::after, .live[data-state="catching"]::before { animation: none; }
+    .lower-third, .osd, canvas.static { transition: none; }
   }
 </style>
 </head>
 <body>
 <main>
   <header class="masthead">
-    <div><h1>Retro Airwaves</h1><p class="eyebrow">The independent archive television guide</p></div>
-    <p class="clock">ON AIR · <time id="clock"></time></p>
+    <div class="brand">
+      <h1>Retro Airwaves</h1>
+      <p class="tagline">Archive television on a shared clock · everyone tuned in sees the same frame</p>
+    </div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+    <div class="onair" role="timer" aria-label="Current local time">
+      <span class="onair-label">ON AIR</span>
+      <time id="clock"></time>
+      <time id="date"></time>
+    </div>
   </header>
-  <div class="layout">
-    <section class="player" aria-labelledby="watch-title" id="player">
-      <h2 id="watch-title">Watch live</h2>
-      <video controls playsinline preload="none" hidden aria-labelledby="watch-title"></video>
-      <p id="status" role="status">Choose a channel to join the program in progress.</p>
-      <a id="source" href="https://archive.org/" target="_blank" rel="noopener" hidden>Program source ↗</a>
-    </section>
-    <section class="guide" aria-label="Channel guide" tabindex="0">
-      <table aria-label="Program schedule in local time">
-        <thead><tr><th scope="col">Channel</th><th scope="col">Now Playing</th><th scope="col">Up Next</th><th scope="col">Later</th></tr></thead>
-        <tbody id="channels"></tbody>
-      </table>
-    </section>
-  </div>
+
+  <section class="stage" aria-label="Now watching">
+    <div class="monitor">
+      <div class="screen idle" id="screen">
+        <video id="video" playsinline preload="none" aria-label="Live channel"></video>
+        <canvas class="static" id="static" width="160" height="90" aria-hidden="true"></canvas>
+        <div class="card" id="card">
+          <p class="card-msg" id="card-msg">Pick a channel</p>
+          <p class="card-sub" id="card-sub">Choose a channel in the guide, or press <kbd>PgUp</kbd>/<kbd>PgDn</kbd> to surf.</p>
+          <button class="btn primary" id="card-btn" type="button" hidden></button>
+        </div>
+        <div class="osd" id="osd" aria-hidden="true"><span id="osd-num"></span><small id="osd-name"></small></div>
+        <div class="numentry" id="numentry" aria-live="assertive" hidden></div>
+        <div class="lower-third" id="lt" aria-hidden="true">
+          <div class="lt-chan" id="lt-chan"></div>
+          <div class="lt-body"><div class="lt-now" id="lt-now"></div><div class="lt-next" id="lt-next"></div></div>
+        </div>
+      </div>
+      <div class="transport" role="toolbar" aria-label="Player controls">
+        <button class="btn icon" id="ch-down" type="button" title="Channel down (PgDn)" aria-label="Channel down">▼</button>
+        <button class="btn icon" id="ch-up" type="button" title="Channel up (PgUp)" aria-label="Channel up">▲</button>
+        <button class="btn icon" id="play" type="button" title="Pause / resume (K)" aria-label="Pause">❚❚</button>
+        <button class="btn icon" id="mute" type="button" title="Mute (M)" aria-label="Mute" aria-pressed="false">🔊</button>
+        <input class="vol" id="vol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+        <span class="live" id="live" data-state="idle" role="status">Off air</span>
+        <button class="btn" id="catchup" type="button" hidden title="Play at 1.25× until you reach the live broadcast">▶▶ Catch up 1.25×</button>
+        <button class="btn" id="golive" type="button" hidden title="Skip ahead to the live broadcast (L)">Go live</button>
+        <span class="spacer"></span>
+        <button class="btn hide-tv" id="crt" type="button" aria-pressed="false" title="CRT scanlines (C)">CRT</button>
+        <button class="btn" id="tvmode" type="button" aria-pressed="false" title="Prevue-style TV mode with an auto-scrolling guide (T)">TV mode</button>
+        <button class="btn icon" id="fs" type="button" title="Fullscreen (F)" aria-label="Fullscreen">⛶</button>
+      </div>
+    </div>
+
+    <aside class="info" id="info" aria-live="polite" aria-label="Program details">
+      <div class="info-head">
+        <img class="badge" id="info-badge" alt="" width="48" height="48">
+        <div><div class="info-state" id="info-state">Program details</div><div class="info-chan" id="info-chan">Retro Airwaves</div></div>
+      </div>
+      <div class="info-body">
+        <h2 id="info-title">Welcome to Retro Airwaves</h2>
+        <div class="chips" id="info-chips"></div>
+        <div class="times" id="info-times"></div>
+        <div class="progress" id="info-progress" hidden><i></i></div>
+        <p class="blurb" id="info-blurb">Every channel runs on a fixed clock, so tuning in drops you into whatever is already on, the same as everyone else. Hover over a listing for details, or pick one that's on air to watch it.</p>
+        <p class="hindsight" id="info-hindsight" hidden><strong>Hindsight · did it matter?</strong><span></span></p>
+        <p class="credit" id="info-credit"></p>
+        <div class="actions" id="info-actions"></div>
+        <p class="upnext-h" id="info-upnext-h" hidden>Up next &amp; later</p>
+        <ol class="upnext" id="info-upnext"></ol>
+      </div>
+    </aside>
+  </section>
+
+  <section class="guide" aria-labelledby="guide-title">
+    <div class="toolbar">
+      <h2 id="guide-title">TV Guide</h2>
+      <div class="group tv-keep" role="group" aria-label="Move through time">
+        <button class="btn icon" id="earlier" type="button" aria-label="Earlier">◀</button>
+        <button class="btn" id="tonow" type="button">Now</button>
+        <button class="btn icon" id="later" type="button" aria-label="Later">▶</button>
+      </div>
+      <div class="group" role="group" aria-label="Filter by genre" id="filters"></div>
+      <label class="search"><span aria-hidden="true">⌕</span><span class="sr-only">Find a show</span><input id="find" type="search" placeholder="Find a show…" autocomplete="off"></label>
+      <span class="spacer"></span>
+      <details class="menu group">
+        <summary class="btn">Watch elsewhere ▾</summary>
+        <div class="menu-panel">
+          <p>Take the current channel to VLC or an IPTV client. Playlists start at the live position when you download them.</p>
+          <button class="btn" id="dl-m3u" type="button">⇩ Channel playlist (.m3u)</button>
+          <button class="btn" id="dl-xmltv" type="button">⇩ 24-hour guide (XMLTV)</button>
+          <button class="btn" id="copy-link" type="button">⧉ Copy link to this channel</button>
+          <p>To watch on a TV, use your browser's cast or AirPlay control, or open TV mode in fullscreen.</p>
+        </div>
+      </details>
+    </div>
+    <div class="scroller" id="scroller" tabindex="-1">
+      <div class="gridwrap" id="gridwrap">
+        <div class="g-head"><div class="g-corner" id="g-day">TODAY</div><div class="g-times" id="g-times"></div></div>
+        <div id="g-rows" role="grid" aria-label="Program schedule in local time" aria-readonly="true"></div>
+        <div class="past-mask" id="past-mask"></div>
+        <div class="nowline" id="nowline"></div>
+      </div>
+      <p class="empty" id="empty" hidden>No channels match.</p>
+    </div>
+    <div class="legend" aria-label="Keyboard shortcuts">
+      <span><kbd>←↑↓→</kbd>Browse guide</span><span><kbd>Enter</kbd>Watch</span><span><kbd>PgUp/PgDn</kbd>Surf</span><span><kbd>0–9</kbd>Channel number</span>
+      <span><kbd>K</kbd>Pause</span><span><kbd>L</kbd>Go live</span><span><kbd>M</kbd>Mute</span><span><kbd>C</kbd>CRT</span><span><kbd>T</kbd>TV mode</span><span><kbd>F</kbd>Fullscreen</span>
+    </div>
+  </section>
+  <footer>Streams come directly from the Internet Archive, Wikimedia Commons, NOAA and the National Park Service. Each listing links to its source and rights information.</footer>
 </main>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
 <script>
   'use strict';
   const EPOCH = 1767225600; // Same UTC epoch and duration rules as the Kodi add-on.
+  const SLOT = 1800, BEFORE = 1800, SPAN = 9 * 3600;
+  const GENRES = {
+    kids: 'Kids', movies: 'Movies', series: 'TV Series', news: 'News & History', science: 'Science & Nature', vintage: 'Vintage Shorts',
+  };
+  const $ = s => document.querySelector(s);
   const now = () => Date.now() / 1000;
-  const localTime = new Intl.DateTimeFormat(undefined, {hour: '2-digit', minute: '2-digit', hourCycle: 'h23'});
-  const timeAt = seconds => localTime.format(seconds * 1000);
-  const video = document.querySelector('video');
-  const playbackStatus = document.querySelector('#status');
-  const source = document.querySelector('#source');
-  const watchTitle = document.querySelector('#watch-title');
-  const clock = document.querySelector('#clock');
-  let active, rollover;
+  const el = (tag, props = {}, ...kids) => { const n = Object.assign(document.createElement(tag), props); n.append(...kids); return n; };
+  const hm = new Intl.DateTimeFormat(undefined, {hour: '2-digit', minute: '2-digit', hourCycle: 'h23'});
+  const timeAt = s => hm.format(s * 1000);
+  const dayFmt = new Intl.DateTimeFormat(undefined, {weekday: 'short', day: 'numeric', month: 'short', year: 'numeric'});
+  const weekday = new Intl.DateTimeFormat(undefined, {weekday: 'short'});
+  const airFmt = new Intl.DateTimeFormat(undefined, {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'});
+  const pad2 = n => String(n).padStart(2, '0');
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem('airwaves.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem('airwaves.' + k, JSON.stringify(v)); } catch {} },
+  };
 
-  function schedule(channel, t) {
-    const {programs, phase, period} = channel;
+  function aired(p) {
+    const a = p.aired;
+    if (!a) return '';
+    return /^\d{4}-\d{2}-\d{2}$/.test(a) ? airFmt.format(new Date(a + 'T00:00:00Z')) : String(a);
+  }
+  const airedYear = p => (p.aired ? String(p.aired).slice(0, 4) : '');
+  function span(seconds) {
+    const m = Math.max(1, Math.round(seconds / 60));
+    return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ` ${m % 60} min` : ''}`;
+  }
+  function until(seconds) {
+    if (seconds < 60) return 'under a minute';
+    return span(seconds);
+  }
+  const mediaUrl = p => p.url || `https://archive.org/download/${encodeURIComponent(p.item)}/${encodeURIComponent(p.file)}`;
+  const sourceUrl = p => p.source_page || `https://archive.org/details/${encodeURIComponent(p.item)}`;
+
+  /* ── Schedule ─────────────────────────────── */
+  function slotAt(ch, t) {
+    const {programs, phase, period} = ch;
     let elapsed = (t - EPOCH + phase) % period;
     if (elapsed < 0) elapsed += period;
     let i = 0;
     while (i < programs.length - 1 && elapsed >= programs[i].seconds) elapsed -= programs[i++].seconds;
-    const program = programs[i], next = programs[(i + 1) % programs.length];
-    const start = t - elapsed, end = start + program.seconds;
-    return {program, next, later: programs[(i + 2) % programs.length], start, end};
+    const start = t - elapsed;
+    return {index: i, program: programs[i], start, end: start + programs[i].seconds};
+  }
+  function nextSlot(ch, s) {
+    const index = (s.index + 1) % ch.programs.length, program = ch.programs[index];
+    return {index, program, start: s.end, end: s.end + program.seconds};
+  }
+  function listings(ch, from, to) {
+    const out = [];
+    for (let s = slotAt(ch, from); s.start < to; s = nextSlot(ch, s)) out.push(s);
+    return out;
   }
 
-  const mediaUrl = p => p.url || `https://archive.org/download/${encodeURIComponent(p.item)}/${encodeURIComponent(p.file)}`;
+  /* ── State ────────────────────────────────── */
+  const S = {
+    channels: [], rows: [], active: null, token: 0, catching: false, iconBase: '',
+    pinned: null, preview: null, focus: null, focusTime: null, winStart: 0, pxPerSec: 0,
+    landing: null,
+    filter: 'all', query: '', reminders: new Map(store.get('reminders', [])),
+  };
+  const video = $('#video'), screen = $('#screen');
 
-  function tune(row) {
-    clearTimeout(rollover);
-    if (active && active.row !== row) {
-      active.row.button.setAttribute('aria-pressed', 'false');
-      delete active.row.tr.dataset.selected;
+  /* ── Static / cards / OSD ─────────────────── */
+  const staticCtx = $('#static').getContext('2d');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let staticRaf = 0, staticLast = 0;
+  function drawStatic(ts = 0) {
+    const live = screen.classList.contains('tuning') || screen.classList.contains('idle') || screen.classList.contains('lost');
+    if (!live) { staticRaf = 0; return; }
+    if (ts - staticLast > 45) {
+      staticLast = ts;
+      const img = staticCtx.createImageData(160, 90), d = img.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const v = Math.random() * 255 | 0;
+        d[i] = d[i + 1] = d[i + 2] = v * .85; d[i + 3] = 255;
+      }
+      staticCtx.putImageData(img, 0, 0);
     }
-    const slot = schedule(row.channel, now());
-    const current = active = {row, slot};
-    row.button.setAttribute('aria-pressed', 'true');
-    row.tr.dataset.selected = '';
-    watchTitle.textContent = `${row.channel.name} · ${slot.program.title}`;
-    playbackStatus.textContent = 'Tuning in…';
-    source.href = slot.program.source_page || `https://archive.org/details/${encodeURIComponent(slot.program.item)}`;
-    source.hidden = video.hidden = false;
+    staticRaf = reduceMotion.matches ? 0 : requestAnimationFrame(drawStatic);
+  }
+  function setScreen(mode, msg = '', sub = '', button = null) {
+    screen.classList.remove('idle', 'tuning', 'lost', 'playing');
+    screen.classList.add(mode);
+    const card = $('#card');
+    card.hidden = mode === 'playing';
+    $('#card-msg').textContent = msg;
+    $('#card-sub').textContent = sub;
+    $('#card-sub').hidden = !sub;
+    const btn = $('#card-btn');
+    btn.hidden = !button;
+    if (button) { btn.textContent = button.label; btn.onclick = button.action; }
+    if (mode !== 'playing' && !staticRaf) staticRaf = requestAnimationFrame(drawStatic);
+  }
+  let osdTimer, ltTimer, numTimer, numBuf = '';
+  function showOSD(ci) {
+    const ch = S.channels[ci], osd = $('#osd');
+    $('#osd-num').textContent = pad2(ci + 1);
+    $('#osd-name').textContent = ch.name.toUpperCase();
+    osd.classList.remove('bug');
+    osd.classList.add('show');
+    clearTimeout(osdTimer);
+    osdTimer = setTimeout(() => { osd.classList.remove('show'); osd.classList.add('bug'); }, 3500);
+  }
+  function showLowerThird() {
+    const a = S.active;
+    if (!a) return;
+    const ch = S.channels[a.ci], nx = nextSlot(ch, a.slot), yr = airedYear(a.slot.program);
+    $('#lt-chan').textContent = pad2(a.ci + 1);
+    $('#lt-now').textContent = `${a.slot.program.title}${yr ? ` (${yr})` : ''}`;
+    $('#lt-next').textContent = `${ch.name.toUpperCase()} · UNTIL ${timeAt(a.slot.end + a.delay)} · NEXT ${nx.program.title}`;
+    const lt = $('#lt');
+    lt.classList.add('show');
+    clearTimeout(ltTimer);
+    ltTimer = setTimeout(() => lt.classList.remove('show'), 6500);
+  }
+
+  /* ── Tuning ───────────────────────────────── */
+  let rollover;
+  function tune(ci, {delay = 0, quiet = false, catching = false} = {}) {
+    if (!S.channels.length) return;
+    ci = (ci + S.channels.length) % S.channels.length;
+    clearTimeout(rollover);
+    const ch = S.channels[ci], t = now();
+    const slot = slotAt(ch, t - delay);
+    const token = ++S.token;
+    const changed = !S.active || S.active.ci !== ci;
+    S.active = {ci, slot, delay, buffering: true};
+    S.catching = catching && delay > 0.4;
+    video.playbackRate = S.catching ? 1.25 : 1;
+    S.rows.forEach((r, i) => r.el.classList.toggle('tuned', i === ci));
+    if (changed || !quiet) showOSD(ci);
+    setScreen('tuning', 'Adjusting the antenna…', `${pad2(ci + 1)} ${ch.name}`);
+    store.set('channel', ci);
+    history.replaceState(null, '', `#ch${pad2(ci + 1)}`);
+    S.pinned = {ci, start: slot.start};
+    S.preview = null;
+    renderInfo();
+    markPlaying();
     video.src = mediaUrl(slot.program);
-    video.play().catch(error => {
-      if (active !== current || error.name === 'AbortError') return;
-      if (error.name === 'NotAllowedError') playbackStatus.textContent = 'Press Play in the video controls.';
-      else streamError();
+    video.play().catch(err => {
+      if (S.token !== token || err.name === 'AbortError') return;
+      if (err.name === 'NotAllowedError') {
+        setScreen('lost', 'Press play to tune in', `${pad2(ci + 1)} ${ch.name} · ${slot.program.title}`, {label: '▶ Watch', action: () => tune(ci, {delay: S.active.delay})});
+      } else signalLost();
     });
+    updateTransport();
+  }
+  function signalLost() {
+    const a = S.active;
+    if (!a) return;
+    const ch = S.channels[a.ci];
+    setScreen('lost', 'Signal lost', `${ch.name} · ${a.slot.program.title} could not stream. Try again, open the source, or change channel.`,
+      {label: 'Try again', action: () => tune(a.ci, {delay: a.delay})});
+  }
+  function lag() {
+    const a = S.active;
+    if (!a || video.readyState < 1) return 0;
+    return now() - a.slot.start - video.currentTime;
+  }
+  function goLive() {
+    const a = S.active;
+    if (!a) return;
+    if (now() < a.slot.end - 2 && video.readyState >= 1 && a.slot.start === slotAt(S.channels[a.ci], now()).start) {
+      a.delay = 0;
+      S.catching = false;
+      video.playbackRate = 1;
+      video.currentTime = now() - a.slot.start;
+      video.play().catch(() => {});
+    } else tune(a.ci, {quiet: true});
+    updateTransport();
+  }
+  function catchUp() {
+    if (!S.active) return;
+    S.catching = true;
+    video.playbackRate = 1.25;
+    video.play().catch(() => {});
+    updateTransport();
   }
 
-  function streamError() {
-    playbackStatus.textContent = 'This stream could not play. Try another channel or open the program source.';
-  }
-  video.addEventListener('error', streamError);
   video.addEventListener('loadedmetadata', () => {
-    const t = now();
-    if (t >= active.slot.end) { tune(active.row); return; }
-    video.currentTime = Math.max(0, t - active.slot.start);
+    const a = S.active;
+    if (!a) return;
+    const target = now() - a.delay - a.slot.start;
+    if (target >= a.slot.program.seconds) { tune(a.ci, {delay: a.delay, quiet: true, catching: S.catching}); return; }
+    video.currentTime = Math.max(0, target);
   });
-  video.addEventListener('playing', () => { playbackStatus.textContent = 'Playing live'; });
+  video.addEventListener('playing', () => {
+    if (!S.active) return;
+    S.active.buffering = false;
+    const wasTuning = !screen.classList.contains('playing');
+    setScreen('playing');
+    if (wasTuning) showLowerThird();
+    updateTransport();
+  });
+  video.addEventListener('waiting', () => {
+    if (S.active) S.active.buffering = true;
+    updateTransport();
+  });
+  video.addEventListener('pause', updateTransport);
+  video.addEventListener('error', () => { if (S.active && video.getAttribute('src')) signalLost(); });
   video.addEventListener('ended', () => {
-    const {row, slot} = active;
-    const wait = slot.end - now();
-    if (wait > 3) { playbackStatus.textContent = 'The stream ended early. Select the channel again to retune.'; return; }
-    playbackStatus.textContent = 'Waiting for the next program…';
-    rollover = setTimeout(() => tune(row), Math.max(0, Math.ceil(wait * 1000)) + 50);
+    const a = S.active;
+    if (!a) return;
+    const remaining = a.slot.end - now();
+    const advance = () => tune(a.ci, {delay: Math.max(0, now() - a.slot.end - 0.05), quiet: true, catching: S.catching});
+    if (remaining <= 0) { advance(); return; }
+    const nx = nextSlot(S.channels[a.ci], a.slot);
+    setScreen('idle', 'Please stand by', `${nx.program.title} starts at ${timeAt(nx.start)}.`);
+    rollover = setTimeout(advance, Math.ceil(remaining * 1000) + 50);
+  });
+  video.addEventListener('timeupdate', () => {
+    if (!S.active) return;
+    if (S.catching && lag() <= 0.4) {
+      S.catching = false;
+      S.active.delay = 0;
+      video.playbackRate = 1;
+      toast('Caught up — back to live.');
+    }
+    if (S.catching) S.active.delay = Math.max(0, lag());
   });
 
-  function makeRow(channel, index) {
-    const tr = document.createElement('tr');
-    const label = document.createElement('th');
-    label.scope = 'row';
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'pick';
-    button.setAttribute('aria-pressed', 'false');
-    const number = document.createElement('span');
-    number.className = 'number';
-    number.textContent = String(index + 1).padStart(2, '0');
-    button.append(number, channel.name);
-    label.append(button);
-    tr.append(label);
-    const cells = Array.from({length: 3}, () => {
-      const td = tr.insertCell();
-      const title = document.createElement('span');
-      const time = document.createElement('time');
-      time.className = 'time';
-      td.append(title, time);
-      return {title, time};
+  function updateTransport() {
+    const live = $('#live'), a = S.active;
+    const playing = a && !video.paused && screen.classList.contains('playing');
+    $('#play').textContent = video.paused ? '▶' : '❚❚';
+    $('#play').setAttribute('aria-label', video.paused ? 'Resume' : 'Pause');
+    let state = 'idle', text = 'Off air';
+    if (a) {
+      const l = lag();
+      if (screen.classList.contains('lost')) text = 'Signal lost';
+      else if (screen.classList.contains('idle')) text = 'Waiting for next program';
+      else if (a.buffering && !video.paused && screen.classList.contains('playing')) text = 'Buffering…';
+      else if (S.catching) { state = 'catching'; text = `Catching up · ${clockSpan(l)} behind`; }
+      else if (video.paused && screen.classList.contains('playing')) { state = 'behind'; text = `Paused · ${clockSpan(l)} behind`; }
+      else if (l > 3) { state = 'behind'; text = `${clockSpan(l)} behind live`; }
+      else if (playing) { state = 'live'; text = 'Live'; }
+      else text = 'Tuning…';
+      const hasSignal = playing || video.paused && screen.classList.contains('playing');
+      $('#catchup').hidden = !hasSignal || S.catching || l <= 3;
+      $('#golive').hidden = !hasSignal || l <= 3;
+    } else { $('#catchup').hidden = $('#golive').hidden = true; }
+    live.dataset.state = state;
+    live.textContent = text;
+  }
+  function clockSpan(s) {
+    s = Math.max(0, Math.round(s));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+    return h ? `${h}:${pad2(m)}:${pad2(sec)}` : `${m}:${pad2(sec)}`;
+  }
+
+  /* ── Info card ────────────────────────────── */
+  function renderInfo() {
+    const sel = S.preview || S.pinned;
+    if (!sel) return;
+    const ch = S.channels[sel.ci], s = slotAt(ch, sel.start + 0.5), p = s.program, t = now();
+    const isActive = S.active && S.active.ci === sel.ci && S.active.slot.start === s.start;
+    const onAir = t >= s.start && t < s.end;
+    $('#info-badge').src = S.iconBase + ch.icon + '.png';
+    $('#info-chan').textContent = `${pad2(sel.ci + 1)} · ${ch.name}`;
+    const state = $('#info-state');
+    state.textContent = isActive ? 'You are watching' : onAir ? 'On air now' : t < s.start ? `Starts ${dayLabel(s.start)}${timeAt(s.start)}` : 'Earlier today';
+    state.classList.toggle('on', onAir || isActive);
+    $('#info-title').textContent = p.title;
+    const chips = $('#info-chips');
+    chips.replaceChildren();
+    if (p.aired) chips.append(el('span', {className: 'chip', textContent: `${/^\d{4}$/.test(p.aired) ? 'Released' : 'First aired'} ${aired(p)}`}));
+    chips.append(el('span', {className: 'chip', textContent: span(p.seconds)}));
+    const g = el('span', {className: 'chip genre', textContent: GENRES[ch.genre] || ch.genre});
+    g.dataset.genre = ch.genre;
+    chips.append(g);
+    $('#info-times').textContent = `${timeAt(s.start)} – ${timeAt(s.end)}`;
+    const prog = $('#info-progress');
+    prog.hidden = !onAir;
+    if (onAir) {
+      prog.firstElementChild.style.setProperty('--p', `${((t - s.start) / p.seconds * 100).toFixed(2)}%`);
+      $('#info-times').textContent += ` · ${until(s.end - t)} left`;
+    } else if (t < s.start) $('#info-times').textContent += ` · in ${until(s.start - t)}`;
+    $('#info-blurb').textContent = p.blurb || 'No description yet. The source page has the full catalog record.';
+    const hs = $('#info-hindsight');
+    hs.hidden = !p.hindsight;
+    hs.lastElementChild.textContent = p.hindsight || '';
+    $('#info-credit').textContent = p.credit || ch.credit || '';
+    const actions = $('#info-actions');
+    actions.replaceChildren();
+    if (onAir && !isActive) actions.append(el('button', {type: 'button', className: 'btn primary', textContent: '▶ Watch now', onclick: () => tune(sel.ci)}));
+    if (t < s.start) {
+      const key = `${sel.ci}:${Math.round(s.start)}`, on = S.reminders.has(key);
+      actions.append(el('button', {type: 'button', className: 'btn' + (on ? '' : ' primary'), textContent: on ? '⏰ Reminder set' : '⏰ Remind me',
+        onclick: () => toggleReminder(sel.ci, s)}));
+    }
+    actions.append(el('a', {className: 'btn', href: sourceUrl(p), target: '_blank', rel: 'noopener', textContent: 'Source ↗'}));
+    const list = $('#info-upnext');
+    list.replaceChildren();
+    let n = s;
+    for (let i = 0; i < 3; i++) {
+      n = nextSlot(ch, n);
+      const yr = airedYear(n.program);
+      list.append(el('li', {}, el('time', {textContent: timeAt(n.start)}), el('span', {textContent: n.program.title + (yr ? ` (${yr})` : '')})));
+    }
+    $('#info-upnext-h').hidden = false;
+    S.infoKey = `${sel.ci}:${s.start}:${onAir}:${isActive}`;
+  }
+  function dayLabel(t) {
+    const a = new Date(t * 1000), b = new Date();
+    return a.toDateString() === b.toDateString() ? '' : weekday.format(a) + ' ';
+  }
+
+  /* ── Reminders & toasts ───────────────────── */
+  function toast(text, action) {
+    const box = el('div', {className: 'toast'}, el('span', {textContent: text}));
+    if (action) box.append(el('button', {type: 'button', className: 'btn primary', textContent: action.label, onclick: () => { action.run(); box.remove(); }}));
+    else box.append(el('button', {type: 'button', className: 'btn icon', textContent: '✕', ariaLabel: 'Dismiss', onclick: () => box.remove()}));
+    $('#toasts').append(box);
+    setTimeout(() => box.remove(), action ? 30000 : 5000);
+  }
+  function toggleReminder(ci, s) {
+    const key = `${ci}:${Math.round(s.start)}`;
+    if (S.reminders.has(key)) { S.reminders.delete(key); toast('Reminder removed.'); }
+    else { S.reminders.set(key, {ci, start: s.start, title: s.program.title}); toast(`We'll flag ${s.program.title} at ${timeAt(s.start)} on ${S.channels[ci].name}.`); }
+    store.set('reminders', [...S.reminders]);
+    markReminders();
+    renderInfo();
+  }
+  function checkReminders(t) {
+    let dirty = false;
+    for (const [key, r] of S.reminders) {
+      if (t >= r.start - 20) {
+        S.reminders.delete(key);
+        dirty = true;
+        if (t < r.start + 600 && S.channels[r.ci]) {
+          toast(`Starting now on ${pad2(r.ci + 1)} ${S.channels[r.ci].name}: ${r.title}`, {label: '▶ Watch', run: () => tune(r.ci)});
+        }
+      }
+    }
+    if (dirty) { store.set('reminders', [...S.reminders]); markReminders(); }
+  }
+
+  /* ── Guide grid ───────────────────────────── */
+  function buildGrid({keepOffset = false} = {}) {
+    const scroller = $('#scroller');
+    const t = now();
+    const prevWin = S.winStart, prevScroll = scroller.scrollLeft;
+    S.winStart = Math.floor(t / SLOT) * SLOT - BEFORE;
+    const winEnd = S.winStart + SPAN;
+    const pxPerMin = matchMedia('(max-width: 40rem)').matches ? 5 : 7.2;
+    S.pxPerSec = pxPerMin / 60;
+    const wrap = $('#gridwrap');
+    wrap.style.setProperty('--track-w', `${SPAN * S.pxPerSec}px`);
+    wrap.style.setProperty('--slot-w', `${SLOT * S.pxPerSec}px`);
+    const times = $('#g-times');
+    times.replaceChildren();
+    for (let x = S.winStart; x < winEnd; x += SLOT) {
+      const d = new Date(x * 1000);
+      times.append(el('span', {className: d.getMinutes() === 0 ? 'hour' : '', textContent: timeAt(x), style: `left:${(x - S.winStart) * S.pxPerSec}px`}));
+    }
+    $('#g-day').textContent = dayFmt.format(t * 1000).toUpperCase();
+    const rowsEl = $('#g-rows');
+    const restoreFocus = !!S.focusEl && document.activeElement === S.focusEl;
+    const previousFocus = S.focus;
+    rowsEl.replaceChildren();
+    S.rows = S.channels.map((ch, ci) => {
+      const row = el('div', {className: 'g-row', role: 'row'});
+      row.dataset.genre = ch.genre;
+      const chanBtn = el('button', {type: 'button', className: 'g-chan', role: 'rowheader', title: `Watch ${ch.name}`},
+        el('span', {className: 'num', textContent: pad2(ci + 1)}),
+        Object.assign(el('img', {alt: '', width: 35, height: 35, loading: 'lazy', src: S.iconBase + ch.icon + '.png'}), {onerror() { this.style.visibility = 'hidden'; }}),
+        el('span', {className: 'name'}, ch.name, el('small', {textContent: (GENRES[ch.genre] || '').toUpperCase()})));
+      chanBtn.addEventListener('click', () => tune(ci));
+      const track = el('div', {className: 'g-track'});
+      const cells = listings(ch, S.winStart, winEnd).map(s => {
+        const left = Math.max(s.start, S.winStart), right = Math.min(s.end, winEnd);
+        const w = (right - left) * S.pxPerSec;
+        const yr = airedYear(s.program);
+        const cell = el('button', {type: 'button', className: 'cell', role: 'gridcell', tabIndex: -1},
+          el('span', {className: 't', textContent: s.program.title}),
+          el('span', {className: 'm', textContent: `${timeAt(s.start)}${yr ? ' · ' + yr : ''}`}));
+        cell.style.left = `${(left - S.winStart) * S.pxPerSec + 1}px`;
+        cell.style.width = `${Math.max(2, w - 2)}px`;
+        if (w < 34) cell.classList.add('narrow');
+        if (s.start < S.winStart) cell.classList.add('clip-l');
+        cell.setAttribute('aria-label', `${s.program.title}${yr ? `, ${yr}` : ''}, ${timeAt(s.start)} to ${timeAt(s.end)}, ${ch.name}`);
+        cell.title = `${s.program.title}${yr ? ` (${yr})` : ''} · ${timeAt(s.start)}–${timeAt(s.end)}`;
+        Object.assign(cell.dataset, {ci, start: s.start});
+        track.append(cell);
+        return {el: cell, start: s.start, end: s.end, title: s.program.title.toLowerCase(), slot: s};
+      });
+      row.append(chanBtn, track);
+      rowsEl.append(row);
+      return {el: row, ch, ci, cells, onair: -1};
     });
-    const row = {channel, tr, button, cells};
-    button.addEventListener('click', () => {
-      tune(row);
-      if (video.getBoundingClientRect().bottom < 0) {
-        document.querySelector('#player').scrollIntoView({block: 'start'});
-        video.focus();
+    applyFilters();
+    markPlaying();
+    markReminders();
+    tickGrid(t, true);
+    if (keepOffset && prevWin) scroller.scrollLeft = prevScroll - (S.winStart - prevWin) * S.pxPerSec;
+    // Restore keyboard focus target if possible.
+    const f = previousFocus && findCell(previousFocus.ci, previousFocus.start);
+    setRoving(f && !f.el.closest('.filtered') ? f : firstVisibleCell(t), restoreFocus);
+  }
+  function findCell(ci, start) {
+    const row = S.rows[ci];
+    return row && row.cells.find(c => Math.abs(c.start - Number(start)) < 0.001) || null;
+  }
+  function cellFromEl(node) { return node && findCell(Number(node.dataset.ci), Number(node.dataset.start)); }
+  function tickGrid(t, force = false) {
+    const x = (t - S.winStart) * S.pxPerSec;
+    $('#nowline').style.transform = `translateX(${x}px)`;
+    $('#past-mask').style.width = `${Math.max(0, x)}px`;
+    for (const row of S.rows) {
+      const idx = row.cells.findIndex(c => t >= c.start && t < c.end);
+      if (idx === row.onair && !force) continue;
+      row.cells.forEach((c, i) => { c.el.classList.toggle('onair', i === idx); c.el.classList.toggle('past', c.end <= t); });
+      row.onair = idx;
+    }
+  }
+  function markPlaying() {
+    const a = S.active;
+    for (const row of S.rows) for (const c of row.cells) c.el.classList.toggle('playing', !!a && row.ci === a.ci && c.start === a.slot.start);
+  }
+  function markReminders() {
+    for (const row of S.rows) for (const c of row.cells) c.el.classList.toggle('reminded', S.reminders.has(`${row.ci}:${Math.round(c.start)}`));
+  }
+  function scrollToNow(smooth = true) {
+    const scroller = $('#scroller'), chanW = $('.g-corner').offsetWidth;
+    const x = (now() - S.winStart) * S.pxPerSec;
+    scroller.scrollTo({left: Math.max(0, x - (scroller.clientWidth - chanW) * 0.12), behavior: smooth && !reduceMotion.matches ? 'smooth' : 'auto'});
+  }
+  function applyFilters() {
+    const q = S.query.trim().toLowerCase();
+    let shown = 0;
+    for (const row of S.rows) {
+      const genreOk = S.filter === 'all' || row.ch.genre === S.filter;
+      let match = !q;
+      for (const c of row.cells) {
+        const hit = !!q && c.title.includes(q);
+        c.el.classList.toggle('match', hit);
+        if (hit) match = true;
+      }
+      if (q && row.ch.name.toLowerCase().includes(q)) match = true;
+      const visible = genreOk && match;
+      row.el.classList.toggle('filtered', !visible);
+      if (visible) shown++;
+    }
+    $('#empty').hidden = shown > 0;
+    $('#gridwrap').hidden = shown === 0;
+    if (!S.focusEl?.isConnected || S.focusEl.closest('.filtered')) {
+      setRoving(firstVisibleCell(now()), document.activeElement === S.focusEl);
+    }
+  }
+
+  /* Roving focus & keyboard browsing in the grid */
+  function setRoving(cell, focus = true) {
+    if (S.focusEl) { S.focusEl.tabIndex = -1; S.focusEl.removeAttribute('aria-selected'); }
+    if (!cell) { S.focus = null; S.focusEl = null; return; }
+    S.focusEl = cell.el;
+    S.focus = {ci: Number(cell.el.dataset.ci), start: cell.start};
+    cell.el.tabIndex = 0;
+    if (focus) {
+      cell.el.setAttribute('aria-selected', 'true');
+      cell.el.focus({preventScroll: true});
+      cell.el.scrollIntoView({block: 'nearest', inline: 'nearest'});
+    }
+  }
+  function visibleRows() { return S.rows.filter(r => !r.el.classList.contains('filtered')); }
+  function firstVisibleCell(t) {
+    const rows = visibleRows();
+    const row = rows.find(r => r.ci === S.active?.ci) || rows[0];
+    return row?.cells.find(c => c.end > t) || row?.cells[0] || null;
+  }
+  $('#g-rows').addEventListener('keydown', e => {
+    const cur = cellFromEl(e.target.closest('.cell'));
+    if (!cur) return;
+    const ci = Number(cur.el.dataset.ci), row = S.rows[ci], i = row.cells.indexOf(cur);
+    let target = null;
+    if (e.key === 'ArrowRight') target = row.cells[i + 1];
+    else if (e.key === 'ArrowLeft') target = row.cells[i - 1];
+    else if (e.key === 'Home') target = row.cells.find(c => c.end > now());
+    else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      const vis = visibleRows(), vi = vis.indexOf(row), nr = vis[vi + (e.key === 'ArrowDown' ? 1 : -1)];
+      if (nr) {
+        const at = S.focusTime ?? Math.max(cur.start, now());
+        target = nr.cells.find(c => at >= c.start && at < c.end) || nr.cells[0];
+        S.focusTime = at;
+      }
+    } else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateCell(cur); return; }
+    else return;
+    e.preventDefault();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'Home') S.focusTime = null;
+    if (target) setRoving(target);
+  });
+  function activateCell(cell) {
+    const ci = Number(cell.el.dataset.ci), t = now();
+    if (t >= cell.start && t < cell.end && !(S.active && S.active.ci === ci && S.active.slot.start === cell.start)) tune(ci);
+    else { S.pinned = {ci, start: cell.start}; S.preview = null; renderInfo(); }
+    setRoving(cell, false);
+  }
+  $('#g-rows').addEventListener('click', e => {
+    const cell = cellFromEl(e.target.closest('.cell'));
+    if (cell) activateCell(cell);
+  });
+  const previewCell = node => {
+    const cell = cellFromEl(node);
+    if (!cell) return;
+    S.preview = {ci: Number(node.dataset.ci), start: cell.start};
+    renderInfo();
+  };
+  $('#g-rows').addEventListener('mouseover', e => { const n = e.target.closest('.cell'); if (n) previewCell(n); });
+  $('#g-rows').addEventListener('focusin', e => { const n = e.target.closest('.cell'); if (n) previewCell(n); });
+  $('#scroller').addEventListener('mouseleave', () => { if (S.preview && !$('#g-rows').contains(document.activeElement)) { S.preview = null; renderInfo(); } });
+  $('#g-rows').addEventListener('focusout', e => { if (!$('#g-rows').contains(e.relatedTarget)) { S.preview = null; renderInfo(); } });
+
+  /* ── Ticker ───────────────────────────────── */
+  let tickerKey = '';
+  function renderTicker(t) {
+    const parts = S.channels.map((ch, ci) => {
+      const s = slotAt(ch, t), yr = airedYear(s.program);
+      return [pad2(ci + 1) + ' ' + ch.name.toUpperCase(), `${s.program.title}${yr ? ` (${yr})` : ''}`];
+    });
+    const key = parts.map(p => p[1]).join('|');
+    if (key === tickerKey) return;
+    tickerKey = key;
+    const make = () => parts.map(([c, title]) => el('span', {}, el('b', {textContent: c}), ' ▸ ' + title));
+    $('#ticker').replaceChildren(...make(), ...make());
+  }
+
+  /* ── TV (Prevue) mode ─────────────────────── */
+  let tvRaf = 0, tvLast = 0, tvHold = 0;
+  let tvReset;
+  function tvScroll(ts) {
+    const sc = $('#scroller');
+    if (reduceMotion.matches || !document.body.classList.contains('tv')) { tvRaf = 0; return; }
+    const dt = tvLast ? ts - tvLast : 0;
+    tvLast = ts;
+    if (ts > tvHold && !sc.matches(':hover')) {
+      sc.scrollTop += dt * 0.022;
+      if (sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 1) {
+        tvHold = ts + 4000;
+        tvReset = setTimeout(() => {
+          if (document.body.classList.contains('tv') && !reduceMotion.matches) sc.scrollTop = 0;
+        }, 3000);
+      }
+    }
+    tvRaf = requestAnimationFrame(tvScroll);
+  }
+  function setTV(on) {
+    document.body.classList.toggle('tv', on);
+    $('#tvmode').setAttribute('aria-pressed', String(on));
+    $('#tvmode').textContent = on ? 'Exit TV mode' : 'TV mode';
+    if (on) {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.().catch(() => {});
+      scrollToNow(false);
+      tvLast = 0; tvHold = performance.now() + 3000;
+      if (!reduceMotion.matches && !tvRaf) tvRaf = requestAnimationFrame(tvScroll);
+      if (!S.active) tune(store.get('channel', 0));
+    } else {
+      clearTimeout(tvReset);
+      if (document.fullscreenElement === document.documentElement) document.exitFullscreen().catch(() => {});
+    }
+  }
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && document.body.classList.contains('tv')) setTV(false); });
+
+  /* ── Exports ──────────────────────────────── */
+  function download(name, type, text) {
+    const url = URL.createObjectURL(new Blob([text], {type}));
+    const a = el('a', {href: url, download: name});
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+  const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  function exportM3U() {
+    const ci = S.active ? S.active.ci : (S.pinned ? S.pinned.ci : 0), ch = S.channels[ci], t = now();
+    const lines = ['#EXTM3U', `#PLAYLIST:Retro Airwaves ${pad2(ci + 1)} ${ch.name}`];
+    listings(ch, t, t + 12 * 3600).forEach((s, i) => {
+      const yr = airedYear(s.program);
+      lines.push(`#EXTINF:${Math.round(s.program.seconds)},${s.program.title}${yr ? ` (${yr})` : ''}`);
+      if (i === 0 && t - s.start > 1) lines.push(`#EXTVLCOPT:start-time=${Math.floor(t - s.start)}`);
+      lines.push(mediaUrl(s.program));
+    });
+    download(`retro-airwaves-${pad2(ci + 1)}-${slug(ch.name)}.m3u`, 'audio/x-mpegurl', lines.join('\n') + '\n');
+    toast(`Playlist for ${ch.name} saved. Open it now so VLC joins at the live position.`);
+  }
+  function exportXMLTV() {
+    const t = now(), from = Math.floor(t / SLOT) * SLOT, to = from + 24 * 3600;
+    const x = s => String(s).replace(/[<>&"']/g, c => ({'<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;'}[c]));
+    const stamp = s => { const d = new Date(Math.round(s) * 1000); return `${d.getUTCFullYear()}${pad2(d.getUTCMonth() + 1)}${pad2(d.getUTCDate())}${pad2(d.getUTCHours())}${pad2(d.getUTCMinutes())}${pad2(d.getUTCSeconds())} +0000`; };
+    const out = ['<?xml version="1.0" encoding="UTF-8"?>', '<!DOCTYPE tv SYSTEM "xmltv.dtd">', '<tv generator-info-name="Retro Airwaves">'];
+    S.channels.forEach((ch, ci) => out.push(`  <channel id="ch${pad2(ci + 1)}.retro-airwaves"><display-name>${x(ch.name)}</display-name><display-name>${pad2(ci + 1)}</display-name></channel>`));
+    S.channels.forEach((ch, ci) => {
+      for (const s of listings(ch, from, to)) {
+        const p = s.program, yr = airedYear(p);
+        out.push(`  <programme start="${stamp(s.start)}" stop="${stamp(s.end)}" channel="ch${pad2(ci + 1)}.retro-airwaves"><title lang="en">${x(p.title)}</title>${p.blurb ? `<desc lang="en">${x(p.blurb + (p.hindsight ? ' Hindsight: ' + p.hindsight : ''))}</desc>` : ''}${yr ? `<date>${yr}</date>` : ''}<category lang="en">${x(GENRES[ch.genre] || ch.genre)}</category><url>${x(sourceUrl(p))}</url></programme>`);
       }
     });
-    return row;
+    out.push('</tv>');
+    download('retro-airwaves-guide.xml', 'application/xml', out.join('\n') + '\n');
   }
 
-  function refresh(rows) {
+  /* ── Controls & keys ──────────────────────── */
+  function surf(step) {
+    const vis = visibleRows().map(r => r.ci);
+    const list = vis.length ? vis : S.channels.map((_, i) => i);
+    const cur = S.active ? list.indexOf(S.active.ci) : -1;
+    const next = cur < 0 ? list[step > 0 ? 0 : list.length - 1] : list[(cur + step + list.length) % list.length];
+    tune(next);
+  }
+  function togglePause() {
+    if (!S.active) { tune(store.get('channel', 0)); return; }
+    if (video.paused) video.play().catch(() => {}); else video.pause();
+    updateTransport();
+  }
+  function toggleMute() {
+    video.muted = !video.muted;
+    $('#mute').textContent = video.muted ? '🔇' : '🔊';
+    $('#mute').setAttribute('aria-pressed', String(video.muted));
+    store.set('muted', video.muted);
+  }
+  function setCRT(on) {
+    screen.classList.toggle('crt', on);
+    $('#crt').setAttribute('aria-pressed', String(on));
+    store.set('crt', on);
+  }
+  function fullscreen() {
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+    else screen.requestFullscreen?.().catch(() => {});
+  }
+  function numberKey(d) {
+    numBuf = (numBuf + d).slice(-2);
+    const box = $('#numentry');
+    box.hidden = false;
+    box.textContent = numBuf.padEnd(2, '-');
+    clearTimeout(numTimer);
+    const commit = () => {
+      const n = parseInt(numBuf, 10);
+      numBuf = '';
+      box.hidden = true;
+      if (n >= 1 && n <= S.channels.length) tune(n - 1);
+      else toast(`There's no channel ${n}. Channels run 01–${pad2(S.channels.length)}.`);
+    };
+    if (numBuf.length === 2 || parseInt(numBuf, 10) * 10 > S.channels.length) commit();
+    else numTimer = setTimeout(commit, 1400);
+  }
+  $('#ch-up').onclick = () => surf(1);
+  $('#ch-down').onclick = () => surf(-1);
+  $('#play').onclick = togglePause;
+  $('#mute').onclick = toggleMute;
+  $('#vol').oninput = e => { video.volume = Number(e.target.value); store.set('volume', video.volume); };
+  $('#catchup').onclick = catchUp;
+  $('#golive').onclick = goLive;
+  $('#crt').onclick = () => setCRT(!screen.classList.contains('crt'));
+  $('#tvmode').onclick = () => setTV(!document.body.classList.contains('tv'));
+  $('#fs').onclick = fullscreen;
+  screen.addEventListener('dblclick', fullscreen);
+  $('#tonow').onclick = () => scrollToNow();
+  $('#earlier').onclick = () => $('#scroller').scrollBy({left: -2 * 3600 * S.pxPerSec, behavior: reduceMotion.matches ? 'auto' : 'smooth'});
+  $('#later').onclick = () => $('#scroller').scrollBy({left: 2 * 3600 * S.pxPerSec, behavior: reduceMotion.matches ? 'auto' : 'smooth'});
+  $('#dl-m3u').onclick = exportM3U;
+  $('#dl-xmltv').onclick = exportXMLTV;
+  $('#copy-link').onclick = async () => {
+    const ci = S.active ? S.active.ci : 0;
+    const url = new URL(`#ch${pad2(ci + 1)}`, location.href).href;
+    try { await navigator.clipboard.writeText(url); toast('Link copied.'); } catch { toast(url); }
+  };
+  $('#find').addEventListener('input', e => { S.query = e.target.value; applyFilters(); });
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key;
+    if (/^[0-9]$/.test(k)) { numberKey(k); e.preventDefault(); return; }
+    const inGrid = !!e.target.closest('.cell');
+    switch (k) {
+      case 'PageUp': case '+': case '=': case ']': surf(1); break;
+      case 'PageDown': case '-': case '[': surf(-1); break;
+      case 'k': case 'K': togglePause(); break;
+      case ' ': if (inGrid || e.target.closest('button, a, summary')) return; togglePause(); break;
+      case 'm': case 'M': toggleMute(); break;
+      case 'l': case 'L': goLive(); break;
+      case 'c': case 'C': setCRT(!screen.classList.contains('crt')); break;
+      case 't': case 'T': setTV(!document.body.classList.contains('tv')); break;
+      case 'f': case 'F': fullscreen(); break;
+      case 'g': case 'G': S.focusEl?.focus(); break;
+      case 'Escape': if (document.body.classList.contains('tv')) setTV(false); else $('details.menu[open]')?.removeAttribute('open'); break;
+      default: return;
+    }
+    e.preventDefault();
+  });
+  document.addEventListener('click', e => { const m = $('details.menu[open]'); if (m && !m.contains(e.target)) m.removeAttribute('open'); });
+
+  /* ── Clock loop ───────────────────────────── */
+  let lastSlot = 0;
+  function tick() {
     const t = now();
+    const clock = $('#clock');
     clock.textContent = timeAt(t);
     clock.dateTime = new Date(t * 1000).toISOString();
-    for (const row of rows) {
-      const s = schedule(row.channel, t);
-      const key = Math.round(s.start * 1000);
-      if (key === row.startKey) continue;
-      row.startKey = key;
-      [s.program, s.next, s.later].forEach((program, i) => {
-        const {title, time} = row.cells[i];
-        const at = [s.start, s.end, s.end + s.next.seconds][i];
-        title.textContent = program.title;
-        time.textContent = `${i === 0 ? 'Since' : 'At'} ${timeAt(at)}`;
-        time.dateTime = new Date(at * 1000).toISOString();
-      });
+    $('#date').textContent = dayFmt.format(t * 1000);
+    const slotNow = Math.floor(t / SLOT);
+    if (lastSlot && slotNow !== lastSlot) buildGrid({keepOffset: true});
+    lastSlot = slotNow;
+    tickGrid(t);
+    renderTicker(t);
+    checkReminders(t);
+    updateTransport();
+    if (!S.active && S.landing) {
+      const landing = S.landing, s = slotAt(S.channels[landing.ci], t);
+      if (Math.abs(s.start - landing.start) >= 0.001) {
+        S.landing = {ci: landing.ci, start: s.start};
+        if (S.pinned === landing) S.pinned = S.landing;
+        $('#card-sub').textContent = `Now: ${s.program.title}`;
+      }
+    }
+    const sel = S.preview || S.pinned;
+    if (sel) {
+      const s = slotAt(S.channels[sel.ci], sel.start + 0.5);
+      const onAir = t >= s.start && t < s.end;
+      const isActive = S.active && S.active.ci === sel.ci && S.active.slot.start === s.start;
+      if (S.infoKey !== `${sel.ci}:${s.start}:${onAir}:${isActive}`) renderInfo();
+      else if (onAir) {
+        $('#info-progress').firstElementChild.style.setProperty('--p', `${((t - s.start) / s.program.seconds * 100).toFixed(2)}%`);
+        $('#info-times').textContent = `${timeAt(s.start)} – ${timeAt(s.end)} · ${until(s.end - t)} left`;
+      }
+    }
+    // When the pinned program ends, follow the tuned channel to its next program.
+    if (S.pinned && S.active && !S.preview && S.pinned.ci === S.active.ci && S.pinned.start !== S.active.slot.start) {
+      S.pinned = {ci: S.active.ci, start: S.active.slot.start};
+      renderInfo();
     }
   }
 
+  /* ── Boot ─────────────────────────────────── */
   async function openGuide() {
-    const catalog = location.pathname === '/retro-airwaves/' ? './channels.json' : '../script.retro.airwaves/resources/channels.json';
+    const deployed = /\/retro-airwaves\/(?:index\.html)?$/.test(location.pathname);
+    const catalog = deployed ? './channels.json' : '../script.retro.airwaves/resources/channels.json';
+    S.iconBase = deployed ? './channels/' : '../script.retro.airwaves/resources/skins/default/media/channels/';
     const response = await fetch(catalog);
     if (!response.ok) throw new Error(`Catalog: ${response.status}`);
     const channels = await response.json();
-    const rows = channels.map((channel, i) => makeRow({...channel, period: channel.programs.reduce((sum, p) => sum + p.seconds, 0)}, i));
-    document.querySelector('#channels').append(...rows.map(row => row.tr));
-    refresh(rows);
-    setInterval(() => refresh(rows), 1000);
+    S.channels = channels.map(ch => ({...ch, genre: ch.genre || 'vintage', period: ch.programs.reduce((sum, p) => sum + p.seconds, 0)}));
+    const filters = $('#filters');
+    const used = new Set(S.channels.map(c => c.genre));
+    for (const [key, label] of [['all', 'All'], ...Object.entries(GENRES).filter(([k]) => used.has(k))]) {
+      const b = el('button', {type: 'button', className: 'btn filter', textContent: label});
+      if (key !== 'all') b.dataset.genre = key;
+      b.setAttribute('aria-pressed', String(key === S.filter));
+      b.onclick = () => {
+        S.filter = key;
+        filters.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        applyFilters();
+      };
+      filters.append(b);
+    }
+    video.volume = store.get('volume', 1);
+    $('#vol').value = video.volume;
+    if (store.get('muted', false)) toggleMute();
+    setCRT(store.get('crt', false));
+    buildGrid();
+    requestAnimationFrame(() => scrollToNow(false));
+    const m = location.hash.match(/^#ch(\d{1,2})$/);
+    const fromHash = m ? parseInt(m[1], 10) - 1 : -1;
+    const start = fromHash >= 0 && fromHash < S.channels.length ? fromHash : store.get('channel', -1);
+    if (start >= 0 && start < S.channels.length) {
+      const ch = S.channels[start], s = slotAt(ch, now());
+      S.pinned = S.landing = {ci: start, start: s.start};
+      renderInfo();
+      setScreen('idle', `${pad2(start + 1)} ${ch.name}`, `Now: ${s.program.title}`, {label: '▶ Tune in', action: () => tune(start)});
+    } else {
+      setScreen('idle', 'Pick a channel', 'Choose a channel in the guide, or press PgUp/PgDn to surf.', {label: '▶ Start watching', action: () => tune(0)});
+    }
+    tick();
+    setInterval(tick, 1000);
+    addEventListener('resize', () => { clearTimeout(S.rz); S.rz = setTimeout(() => { buildGrid(); scrollToNow(false); }, 250); });
   }
-  openGuide().catch(() => { playbackStatus.textContent = 'The channel guide could not load. Reload the page to try again.'; });
+  openGuide().catch(err => {
+    console.error(err);
+    setScreen('lost', 'No signal', 'The channel guide could not load. Reload the page to try again.');
+  });
 </script>
 </body>
 </html>

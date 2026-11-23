@@ -26,9 +26,9 @@
                 <control type="image"><left>0</left><top>0</top><width>1740</width><height>73</height><texture>airwaves-row.png</texture></control>
                 <control type="label"><left>29</left><top>0</top><width>70</width><height>73</height><font>font13</font><textcolor>FFFFE56C</textcolor><label>$INFO[ListItem.Property(Number)]</label></control>
                 <control type="image"><left>78</left><top>11</top><width>52</width><height>52</height><aspectratio>keep</aspectratio><texture>$INFO[ListItem.Art(thumb)]</texture></control>
-                <control type="label"><left>145</left><top>0</top><width>165</width><height>73</height><font>font13</font><textcolor>FFFFE56C</textcolor><label>$INFO[ListItem.Label]</label></control>
-                <control type="label"><left>363</left><top>7</top><width>420</width><height>32</height><font>font13</font><textcolor>FFF7F1FF</textcolor><scroll>false</scroll><label>$INFO[ListItem.Label2]</label></control>
-                <control type="label"><left>363</left><top>41</top><width>420</width><height>24</height><font>font13</font><textcolor>FFBBBDEA</textcolor><label>$INFO[ListItem.Property(Since),SINCE ]</label></control>
+                <control type="label"><left>145</left><top>0</top><width>259</width><height>73</height><font>font13</font><textcolor>FFFFE56C</textcolor><label>$INFO[ListItem.Label]</label></control>
+                <control type="label"><left>432</left><top>7</top><width>351</width><height>32</height><font>font13</font><textcolor>FFF7F1FF</textcolor><scroll>false</scroll><label>$INFO[ListItem.Label2]</label></control>
+                <control type="label"><left>432</left><top>41</top><width>351</width><height>24</height><font>font13</font><textcolor>FFBBBDEA</textcolor><label>$INFO[ListItem.Property(Since),SINCE ]</label></control>
                 <control type="label"><left>829</left><top>7</top><width>420</width><height>32</height><font>font13</font><textcolor>FFF7F1FF</textcolor><scroll>false</scroll><label>$INFO[ListItem.Property(UpNext)]</label></control>
                 <control type="label"><left>829</left><top>41</top><width>420</width><height>24</height><font>font13</font><textcolor>FFBBBDEA</textcolor><label>$INFO[ListItem.Property(NextAt),AT ]</label></control>
                 <control type="label"><left>1296</left><top>7</top><width>420</width><height>32</height><font>font13</font><textcolor>FFF7F1FF</textcolor><scroll>false</scroll><label>$INFO[ListItem.Property(Later)]</label></control>
@@ -38,9 +38,9 @@
                 <control type="image"><left>0</left><top>0</top><width>1740</width><height>73</height><texture>airwaves-focus.png</texture></control>
                 <control type="label"><left>29</left><top>0</top><width>70</width><height>73</height><font>font13</font><textcolor>FFFFF1A1</textcolor><label>$INFO[ListItem.Property(Number)]</label></control>
                 <control type="image"><left>78</left><top>11</top><width>52</width><height>52</height><aspectratio>keep</aspectratio><texture>$INFO[ListItem.Art(thumb)]</texture></control>
-                <control type="label"><left>145</left><top>0</top><width>165</width><height>73</height><font>font13</font><textcolor>FFFFF1A1</textcolor><label>$INFO[ListItem.Label]</label></control>
-                <control type="label"><left>363</left><top>7</top><width>420</width><height>32</height><font>font13</font><textcolor>FFFFFFFF</textcolor><scroll>true</scroll><label>$INFO[ListItem.Label2]</label></control>
-                <control type="label"><left>363</left><top>41</top><width>420</width><height>24</height><font>font13</font><textcolor>FFE8DCF9</textcolor><label>$INFO[ListItem.Property(Since),SINCE ]</label></control>
+                <control type="label"><left>145</left><top>0</top><width>259</width><height>73</height><font>font13</font><textcolor>FFFFF1A1</textcolor><scroll>true</scroll><label>$INFO[ListItem.Label]</label></control>
+                <control type="label"><left>432</left><top>7</top><width>351</width><height>32</height><font>font13</font><textcolor>FFFFFFFF</textcolor><scroll>true</scroll><label>$INFO[ListItem.Label2]</label></control>
+                <control type="label"><left>432</left><top>41</top><width>351</width><height>24</height><font>font13</font><textcolor>FFE8DCF9</textcolor><label>$INFO[ListItem.Property(Since),SINCE ]</label></control>
                 <control type="label"><left>829</left><top>7</top><width>420</width><height>32</height><font>font13</font><textcolor>FFFFFFFF</textcolor><scroll>true</scroll><label>$INFO[ListItem.Property(UpNext)]</label></control>
                 <control type="label"><left>829</left><top>41</top><width>420</width><height>24</height><font>font13</font><textcolor>FFE8DCF9</textcolor><label>$INFO[ListItem.Property(NextAt),AT ]</label></control>
                 <control type="label"><left>1296</left><top>7</top><width>420</width><height>32</height><font>font13</font><textcolor>FFFFFFFF</textcolor><scroll>true</scroll><label>$INFO[ListItem.Property(Later)]</label></control>

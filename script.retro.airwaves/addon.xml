@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="script.retro.airwaves" name="Retro Airwaves" version="1.4.0" provider-name="GowangInc">
+<addon id="script.retro.airwaves" name="Retro Airwaves" version="1.5.0" provider-name="GowangInc">
   <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>

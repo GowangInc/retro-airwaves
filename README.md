@@ -1,14 +1,18 @@
 # Retro Airwaves
 
-Retro Airwaves is an independent alternative to [Spelunkr](https://spelunkr.tv/app), with the same 18-channel lineup in Kodi and the browser. Both guides show archival film and television on a shared clock. Neither uses Spelunkr or requires an account.
+Retro Airwaves is an independent alternative to [Spelunkr](https://spelunkr.tv/app), with the same 23-channel lineup in Kodi and the browser. Both guides show archival film and television on a shared clock. Neither uses Spelunkr or requires an account.
 
 ![Retro Airwaves in Kodi: eight visible channels with Now Playing, Up Next, and Later columns](screenshots/guide.jpg)
 
-[See the guide scrolled to channels 11–18](screenshots/guide-scrolled.jpg).
+[See the Kodi guide scrolled to channels 16–23](screenshots/guide-scrolled.jpg).
 
 ## Watch in a browser
 
+![Browser guide with a live channel timeline and program details](screenshots/browser-guide.jpg)
+
 Serve the repository root with any static HTTP server and open `/web/`. Choose a channel to join the program already in progress. The browser streams directly from the archives; if a stream is unavailable, use the program source link or try another channel. No Kodi installation is needed.
+
+The browser guide shows a scrollable timeline and a program card with upcoming titles. Click a channel or an on-air listing to watch. Use **Now** to return to the current time, or filter by genre and search by title. **Catch up** plays at 1.25× until you reach live; **Go live** skips to the current position. **Watch elsewhere** offers a VLC playlist and an XMLTV guide.
 
 ## Install on Kodi
 
@@ -24,6 +28,8 @@ The guide shows eight channels at a time. Each row shows **Now Playing**, **Up N
 
 The first six channels are **Kids Club** (ranger activities and animation), **Storybook** (fairy tales and animated stories), **Time Travel** (history), **Ocean Life** (marine science), **Deep Time** (fossils and geology), and **Science Lab** (NASA education shows). The rest of the lineup includes Oddities, Space, Toons, In Motion, Retro Tech, Field Notes, Westerns, Film Noir, Sci-Fi, Silent Film, Newsreels, and Classroom. The guide is not a parental-control or ratings filter.
 
+Channels 19–23 are **Fright Night** (classic horror), **Strange Tales** (scripted *One Step Beyond* episodes, including *Dead Ringer* and *Anniversary of a Murder*), **Prime Time** (vintage sitcoms), **Commercial Break** (classic TV ads), and **Hindsight** (newsreels with historical context). Strange Tales does not carry the *Unsolved Mysteries* series.
+
 ![A frame from the 1941 Superman cartoon playing fullscreen in Kodi](screenshots/playback.jpg)
 
 Playback example: [Superman (1941)](https://archive.org/details/superman_1941), marked public domain by the Internet Archive item.
@@ -31,6 +37,8 @@ Playback example: [Superman (1941)](https://archive.org/details/superman_1941), 
 ## Develop
 
 The lineup is in `script.retro.airwaves/resources/channels.json`. For Internet Archive entries, see `https://archive.org/details/<item>` for the source and rights information. Direct streams instead carry `url` and `source_page` fields. Use the exact stream duration in seconds; editing durations or order changes the UTC schedule for that channel. Channel badges are 96×96 indexed PNGs under `resources/skins/default/media/channels/`.
+
+Channels carry a `genre` for browser filters. Program descriptions (`blurb`), original air or release date (`aired`, as `YYYY` or `YYYY-MM-DD`), and historical context (`hindsight`) are optional. For a hosted viewer with adjacent assets, serve `web/index.html` as `/retro-airwaves/`, `channels.json` beside it, and the badge PNGs under `channels/`.
 
 Run `python3 -B check_schedule.py` to check cutovers, wraparound, and URL encoding. When packaging, put the `script.retro.airwaves/` folder at the ZIP root and include a copy of `LICENSE` in that folder.
 

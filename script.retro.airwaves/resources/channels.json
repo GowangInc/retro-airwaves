@@ -2,6 +2,7 @@
   {
     "name": "Kids Club",
     "icon": "kids-club",
+    "genre": "kids",
     "phase": 18427,
     "programs": [
       {"title": "Wing It!", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm/WING_IT%21_-_Blender_Open_Movie-full_movie.webm.480p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm", "credit": "Blender Studio · CC BY 4.0", "seconds": 237.945},
@@ -16,6 +17,7 @@
   {
     "name": "Storybook",
     "icon": "storybook",
+    "genre": "kids",
     "phase": 20101,
     "programs": [
       {"title": "Ada & Zangemann", "item": "ada-zangemann-a-tale-of-software-skateboards-and-raspberry-ice-cream", "file": "Ada_Zangemann-A_Tale_of_Software_Skateboards_and_Raspberry_Ice_Cream.ia.mp4", "credit": "Free Software Foundation Europe / Matthias Kirschner / Sandra Brandstätter / Monströös · CC BY-SA 4.0", "seconds": 1892.65},
@@ -30,6 +32,7 @@
   {
     "name": "Time Travel",
     "icon": "time-travel",
+    "genre": "news",
     "phase": 22303,
     "programs": [
       {"title": "Island of Hope, Island of Tears", "item": "gov.ntis.ava15996vnb1", "file": "ava15996vnb1_512kb.mp4", "seconds": 1704.67},
@@ -42,6 +45,7 @@
   {
     "name": "Ocean Life",
     "icon": "ocean-life",
+    "genre": "science",
     "phase": 25457,
     "credit": "NOAA Ocean Exploration · Deep-Sea Dialogues",
     "programs": [
@@ -56,6 +60,7 @@
   {
     "name": "Deep Time",
     "icon": "deep-time",
+    "genre": "science",
     "phase": 27211,
     "programs": [
       {"title": "Of Ice and Fire: The Mono Basin", "item": "gov.ntis.a19389vnb1", "file": "a19389vnb1_512kb.mp4", "credit": "USDA Forest Service", "seconds": 1252.09},
@@ -69,6 +74,7 @@
   {
     "name": "Science Lab",
     "icon": "science-lab",
+    "genre": "science",
     "phase": 29879,
     "credit": "NASA Langley Office of Education",
     "programs": [
@@ -83,6 +89,7 @@
   {
     "name": "Oddities",
     "icon": "oddities",
+    "genre": "vintage",
     "phase": 0,
     "programs": [
       {"title": "Design for Dreaming", "item": "Designfo1956", "file": "Designfo1956.mp4", "seconds": 556.79},
@@ -96,6 +103,7 @@
   {
     "name": "Space",
     "icon": "space",
+    "genre": "science",
     "phase": 601,
     "programs": [
       {"title": "Apollo 11", "item": "Apollo11", "file": "161993main_06c_ArriveMoon_512kb.mp4", "seconds": 407.40},
@@ -109,6 +117,7 @@
   {
     "name": "Toons",
     "icon": "toons",
+    "genre": "vintage",
     "phase": 1423,
     "programs": [
       {"title": "Superman", "item": "superman_1941", "file": "superman_1941_512kb.mp4", "seconds": 620.78},
@@ -125,6 +134,7 @@
   {
     "name": "In Motion",
     "icon": "in-motion",
+    "genre": "vintage",
     "phase": 2087,
     "programs": [
       {"title": "Trip Down Market Street", "item": "TripDown1905", "file": "TripDown1905.mp4", "seconds": 832.80},
@@ -138,6 +148,7 @@
   {
     "name": "Retro Tech",
     "icon": "retro-tech",
+    "genre": "series",
     "phase": 3217,
     "credit": "Computer Chronicles (Stewart Cheifet) · CC BY-NC-ND 2.0",
     "programs": [
@@ -155,6 +166,7 @@
   {
     "name": "Field Notes",
     "icon": "field-notes",
+    "genre": "science",
     "phase": 5381,
     "programs": [
       {"title": "Patterns of the Wild", "item": "PatternsOfTheWild", "file": "PatternsOfTheWild.mp4", "seconds": 1610.86},
@@ -167,6 +179,7 @@
   {
     "name": "Westerns",
     "icon": "westerns",
+    "genre": "movies",
     "phase": 7891,
     "programs": [
       {"title": "Santa Fe Trail", "item": "Santa_Fe_Trail_movie", "file": "Santa_Fe_Trail_512kb.mp4", "seconds": 6578.39},
@@ -181,6 +194,7 @@
   {
     "name": "Film Noir",
     "icon": "film-noir",
+    "genre": "movies",
     "phase": 9211,
     "programs": [
       {"title": "The Big Combo", "item": "The_Big_Combo_1955", "file": "Big_Combo_1955.mp4", "seconds": 5248.29},
@@ -194,6 +208,7 @@
   {
     "name": "Sci-Fi",
     "icon": "sci-fi",
+    "genre": "movies",
     "phase": 11239,
     "programs": [
       {"title": "Captain Video (1949)", "item": "captainvideo", "file": "captainvideo.mp4", "seconds": 1722.48},
@@ -206,6 +221,7 @@
   {
     "name": "Silent Film",
     "icon": "silent-comedy",
+    "genre": "movies",
     "phase": 13417,
     "programs": [
       {"title": "One Week", "item": "OneWeek", "file": "One_Week_512kb.mp4", "seconds": 1336.80},
@@ -218,18 +234,20 @@
   {
     "name": "Newsreels",
     "icon": "newsreels",
+    "genre": "news",
     "phase": 15241,
     "programs": [
-      {"title": "Huge Throngs Welcome Balbo", "item": "1933-07-17_Huge_Throngs_Welcome_Balbo", "file": "1933-07-17_Huge_Throngs_Welcome_Balbo.mp4", "seconds": 93.26},
-      {"title": "USS Panay: Special Issue", "item": "1937-12-12_Bombing_of_USS_Panay", "file": "1937-12-12_Bombing_of_USS_Panay_512kb.mp4", "seconds": 1313.25},
-      {"title": "Attlee Here for Parley", "item": "1945-11-13_Attlee_Here_For_Parley", "file": "1945-11-13_Attlee_Here_For_Parley.mp4", "seconds": 270.04},
-      {"title": "Universal Newsreel: 28 November 1963", "item": "UniversalNewsreelVolume36Release9711-28-1963", "file": "Universal Newsreel Volume 36 Release 97 11-28-1963.mp4", "seconds": 538.73},
-      {"title": "Tokyo Olympics Opening Ceremony", "item": "1964-10-12_Tokyo_Winter_Olympics", "file": "1964-10-12_Tokyo_Winter_Olympics.mp4", "seconds": 118.80}
+      {"title": "Huge Throngs Welcome Balbo", "item": "1933-07-17_Huge_Throngs_Welcome_Balbo", "file": "1933-07-17_Huge_Throngs_Welcome_Balbo.mp4", "seconds": 93.26, "aired": "1933-07-17", "blurb": "Newsreel coverage of the welcome for Italian aviator Italo Balbo and his transatlantic formation.", "hindsight": "The flight was also a propaganda showcase for Mussolini’s Fascist government."},
+      {"title": "USS Panay: Special Issue", "item": "1937-12-12_Bombing_of_USS_Panay", "file": "1937-12-12_Bombing_of_USS_Panay_512kb.mp4", "seconds": 1313.25, "aired": "1937", "blurb": "A special newsreel on the Japanese attack on an American gunboat in China.", "hindsight": "Japan apologized and paid an indemnity; the United States did not enter the war over the incident."},
+      {"title": "Attlee Here for Parley", "item": "1945-11-13_Attlee_Here_For_Parley", "file": "1945-11-13_Attlee_Here_For_Parley.mp4", "seconds": 270.04, "aired": "1945-11-13", "blurb": "British prime minister Clement Attlee arrives in the United States for postwar talks.", "hindsight": "The talks helped lay the groundwork for a United Nations commission on atomic energy."},
+      {"title": "Universal Newsreel: 28 November 1963", "item": "UniversalNewsreelVolume36Release9711-28-1963", "file": "Universal Newsreel Volume 36 Release 97 11-28-1963.mp4", "seconds": 538.73, "aired": "1963-11-28", "blurb": "An issue of Universal Newsreel released less than a week after President Kennedy’s assassination."},
+      {"title": "Tokyo Olympics Opening Ceremony", "item": "1964-10-12_Tokyo_Winter_Olympics", "file": "1964-10-12_Tokyo_Winter_Olympics.mp4", "seconds": 118.80, "aired": "1964", "blurb": "A newsreel from Tokyo’s 1964 Summer Olympics, the first Olympic Games held in Asia."}
     ]
   },
   {
     "name": "Classroom",
     "icon": "classroom",
+    "genre": "science",
     "phase": 16729,
     "programs": [
       {"title": "Good Eating Habits", "item": "GoodEati1951", "file": "GoodEati1951.mp4", "seconds": 585.52},
@@ -239,6 +257,90 @@
       {"title": "The Flow of Heat, Part I", "item": "Sciencei1956_11", "file": "Sciencei1956_11.mp4", "seconds": 861.76},
       {"title": "The Flow of Heat, Part II", "item": "Sciencei1956_12", "file": "Sciencei1956_12.mp4", "seconds": 656.76},
       {"title": "Facts About Film", "item": "FactsAboutFi", "file": "FactsAboutFi.mp4", "seconds": 602.60}
+    ]
+  },
+  {
+    "name": "Fright Night",
+    "icon": "fright-night",
+    "genre": "movies",
+    "phase": 32423,
+    "programs": [
+      {"title": "House on Haunted Hill", "item": "house_on_haunted_hill_ipod", "file": "house_on_haunted_hill_512kb.mp4", "seconds": 4483.21, "aired": "1959", "blurb": "Vincent Price plays a millionaire who offers five strangers a prize if they can spend one night in a haunted house."},
+      {"title": "The Bat", "item": "The_Bat_Vincent_Price", "file": "The_Bat_512kb.mp4", "seconds": 4895.86, "aired": "1959", "blurb": "A mystery writer spends the summer in a mansion stalked by a killer known as the Bat."},
+      {"title": "The Last Man on Earth", "item": "TheLastManOnEarth_72", "file": "the_last_man_on_earth.mp4", "seconds": 5190.26, "aired": "1964", "blurb": "Vincent Price plays a lone survivor fending off the creatures that come out after dark. Adapted from Richard Matheson’s I Am Legend."},
+      {"title": "Carnival of Souls", "item": "CarnivalofSouls", "file": "CarnivalOfSouls_512kb.mp4", "seconds": 4979.58, "aired": "1962", "blurb": "A church organist survives a crash and finds herself drawn to an abandoned pavilion."},
+      {"title": "Night of the Living Dead", "item": "night_of_the_living_dead_ipod", "file": "night_of_the_living_dead_512kb.mp4", "seconds": 5717.15, "aired": "1968", "blurb": "Strangers take refuge in a farmhouse as the dead begin to rise in George A. Romero’s independent horror film."},
+      {"title": "The Little Shop of Horrors", "item": "The_Little_Shop_of_Horrors.mpeg", "file": "The_Little_Shop_of_Horrors_512kb.mp4", "seconds": 4350.51, "aired": "1960", "blurb": "A florist’s assistant finds that his unusual plant has an expensive appetite in Roger Corman’s horror comedy."}
+    ]
+  },
+  {
+    "name": "Strange Tales",
+    "icon": "strange-tales",
+    "genre": "series",
+    "phase": 34213,
+    "programs": [
+      {"title": "One Step Beyond: The Bride Possessed", "item": "OSB-TheBridePossessed", "file": "The_Bride_Possessed_512kb.mp4", "seconds": 1494.00, "aired": "1959-01-20", "blurb": "On her honeymoon, Sally Conroy starts speaking and acting as though she were someone else."},
+      {"title": "One Step Beyond: Night of April 14th", "item": "OSBS01E02NightOfApril14", "file": "OSB S01E02 Night of April 14.mp4", "seconds": 1582.72, "aired": "1959-01-27", "blurb": "A bride-to-be dreams of drowning, then learns her honeymoon passage is aboard the Titanic."},
+      {"title": "One Step Beyond: The Last Round", "item": "OSB-77_The_Last_Round", "file": "OSB-77_The_Last_Round_512kb.mp4", "seconds": 1497.09, "aired": "1961-01-10", "blurb": "A boxer sees a fighter who died in the ring and fears it’s an omen."},
+      {"title": "One Step Beyond: Anniversary of a Murder", "item": "OSB-63_Anniversary_of_a_Murder", "file": "OSB-63_Anniversary_of_a_Murder.mp4", "seconds": 1527.29, "aired": "1960-09-27", "blurb": "A businessman hides a fatal hit-and-run, then hears what sounds like the victim’s voice on his dictation machine."},
+      {"title": "One Step Beyond: Dead Ringer", "item": "OSB-33_Dead_Ringer", "file": "OSB-33_Dead_Ringer.mp4", "seconds": 1490.16, "aired": "1959-12-01", "blurb": "A woman has visions of orphanage fires and suspects her estranged twin, who reportedly died years earlier."}
+    ]
+  },
+  {
+    "name": "Prime Time",
+    "icon": "prime-time",
+    "genre": "series",
+    "phase": 35981,
+    "programs": [
+      {"title": "The Beverly Hillbillies: The Clampetts Strike Oil", "item": "Beverly_Hillbillies_Ep01_The_Clampetts_Strike_Oil", "file": "BH01_The_Clampetts_Strike_Oil_512kb.mp4", "seconds": 1492.32, "aired": "1962-09-26", "blurb": "The Clampetts strike oil and set off for Beverly Hills in the first episode of the sitcom."},
+      {"title": "The Beverly Hillbillies: Getting Settled", "item": "Beverly_Hillbillies_Ep02_Getting_Settled", "file": "BH02_Getting_Settled_512kb.mp4", "seconds": 1494.20, "aired": "1962", "blurb": "The family settles into its Beverly Hills mansion and meets its new neighbors."},
+      {"title": "The Dick Van Dyke Show: Hustling the Hustler", "item": "TheDickVanDykeShow", "file": "The-Dick_Van_Dyke-Show-10-24-62_512kb.mp4", "seconds": 1520.79, "aired": "1962-10-24", "blurb": "Buddy’s brother, a pool hustler, comes to visit Rob and Laura."},
+      {"title": "The Beverly Hillbillies: Trick or Treat", "item": "Beverly_Hillbillies_Ep06_Trick_Or_Treat", "file": "BH06_Trick_Or_Treat_512kb.mp4", "seconds": 1512.88, "aired": "1962-10-31", "blurb": "A Halloween misunderstanding leads to a round of door-to-door visits in Beverly Hills."},
+      {"title": "The Dick Van Dyke Show: The Night the Roof Fell In", "item": "dick_van_dyke_show_39_the_night_the_roof_fell_in", "file": "dick_van_dyke_show_39_the_night_the_roof_fell_in_512kb.mp4", "seconds": 1520.89, "aired": "1962-11-21", "blurb": "Rob and Laura tell wildly different versions of the same domestic quarrel."},
+      {"title": "The Beverly Hillbillies: The Servants", "item": "Beverly_Hillbillies_Ep07_The_Servants", "file": "BH07_The_Servants_512kb.mp4", "seconds": 1499.96, "aired": "1962", "blurb": "The Clampetts meet a pair of servants and misunderstand who’s meant to be helping whom."}
+    ]
+  },
+  {
+    "name": "Commercial Break",
+    "icon": "commercial-break",
+    "genre": "vintage",
+    "phase": 37003,
+    "credit": "Prelinger Archives · Internet Archive",
+    "programs": [
+      {"title": "Classic Television Commercials, Part I", "item": "ClassicT1948", "file": "ClassicT1948_512kb.mp4", "seconds": 536.50, "blurb": "Part one of the Prelinger Archives collection of early television advertising."},
+      {"title": "Classic Television Commercials, Part II", "item": "ClassicT1948_2", "file": "ClassicT1948_2_512kb.mp4", "seconds": 715.11, "blurb": "Part two of the Prelinger Archives collection of early television advertising."},
+      {"title": "DuMont Television Commercial", "item": "DuMont_Set_Commercial", "file": "Television_Set_Commercial_512kb.mp4", "seconds": 90.60, "aired": "1949", "credit": "Internet Archive", "blurb": "A commercial selling the television set itself, from the era when DuMont also operated a broadcast network."},
+      {"title": "Classic Television Commercials, Part III", "item": "ClassicT1948_3", "file": "ClassicT1948_3_512kb.mp4", "seconds": 557.82, "blurb": "Part three of the Prelinger Archives collection of early television advertising."},
+      {"title": "Television Commercials of the 1950s and 1960s", "item": "Televisi1960", "file": "Televisi1960_512kb.mp4", "seconds": 1515.71, "blurb": "A longer compilation of American television advertising from the 1950s and 1960s."},
+      {"title": "Classic Television Commercials, Part IV", "item": "ClassicT1948_4", "file": "ClassicT1948_4_512kb.mp4", "seconds": 619.68, "blurb": "Part four of the Prelinger Archives collection of early television advertising."},
+      {"title": "UNIVAC Computer Commercial", "item": "UNIVAC-AD-2", "file": "UNIVAC2_512kb.mp4", "seconds": 27.96, "aired": "1956", "credit": "Internet Archive", "blurb": "A short television ad for UNIVAC, one of the first commercial computers in the United States."},
+      {"title": "Classic Television Commercials, Part V", "item": "ClassicT1948_5", "file": "ClassicT1948_5_512kb.mp4", "seconds": 555.72, "blurb": "Part five of the Prelinger Archives collection of early television advertising."}
+    ]
+  },
+  {
+    "name": "Hindsight",
+    "icon": "hindsight",
+    "genre": "news",
+    "phase": 39107,
+    "credit": "Universal Newsreel · Internet Archive",
+    "programs": [
+      {"title": "Zeppelin Explodes", "item": "1937-05-10_Special_Release_Zeppelin_Explodes", "file": "1937-05-10_Special_Release_Zeppelin_Explodes_512kb.mp4", "seconds": 180.01, "aired": "1937-05-10", "blurb": "A special issue reports the Hindenburg fire at Lakehurst, New Jersey.", "hindsight": "The disaster killed 36 people and effectively ended the era of passenger service by rigid airship."},
+      {"title": "Victorious Generals Welcomed", "item": "1945-06-11_Victorious_Generals_Welcomed", "file": "1945-06-11_Victorious_Generals_Welcomed_512kb.mp4", "seconds": 441.78, "aired": "1945-06-11", "blurb": "Los Angeles welcomes Generals George Patton and Jimmy Doolittle.", "hindsight": "Germany had surrendered a month earlier, but the Pacific war was still underway."},
+      {"title": "Berlin Siege", "item": "1948-07-22_Berlin_Siege", "file": "1948-07-22_Berlin_Siege_512kb.mp4", "seconds": 256.56, "aired": "1948-07-22", "blurb": "General Lucius Clay returns to report on the Berlin crisis.", "hindsight": "The Soviet blockade ended in May 1949, but the Allies continued the airlift until September."},
+      {"title": "First Pictures of an Atomic Blast", "item": "1946-07-08_First_Pictures_Atomic_Blast", "file": "1946-07-08_First_Pictures_Atomic_Blast_512kb.mp4", "seconds": 442.21, "aired": "1946-07-08", "blurb": "A newsreel shows the first Operation Crossroads nuclear test at Bikini Atoll.", "hindsight": "Bikini residents had been displaced before the tests; radioactive contamination made a lasting return unsafe."},
+      {"title": "Berlin Airlift Increased", "item": "1948-10-25_Berlin_Airlift_increased", "file": "1948-10-25_Berlin_Airlift_increased_512kb.mp4", "seconds": 122.79, "aired": "1948-10-25", "blurb": "Allied supply flights increase during the Berlin blockade.", "hindsight": "Planes carried fuel as well as food, keeping the western sectors of the city supplied through the winter."},
+      {"title": "Suez Crisis", "item": "1956-08-06_Suez_Crisis", "file": "1956-08-06_Suez_Crisis_512kb.mp4", "seconds": 382.65, "aired": "1956-08-06", "blurb": "A newsreel leads with British and French preparations following Egypt’s nationalization of the Suez Canal.", "hindsight": "The invasion came that October; international pressure forced a withdrawal."},
+      {"title": "New Moon: Sputnik 1", "item": "1957-10-07_New_Moon", "file": "1957-10-07_New_Moon_512kb.mp4", "seconds": 45.21, "aired": "1957-10-07", "blurb": "The newsreel announces the Soviet Union’s launch of the first artificial satellite.", "hindsight": "Sputnik’s October 1957 launch helped spur the creation of NASA the following year."},
+      {"title": "Satellite a Bust: Vanguard TV3", "item": "1957-12-09_Satellite_A_Bust", "file": "1957-12-09_Satellite_A_Bust_512kb.mp4", "seconds": 240.17, "aired": "1957-12-09", "blurb": "The first U.S. attempt to launch a satellite ends in a launchpad explosion.", "hindsight": "Explorer 1 reached orbit in January 1958. Vanguard 1 followed in March."},
+      {"title": "First U.S. Satellite Launched", "item": "1958-02-03_First_US_Satellite_Launched", "file": "1958-02-03_First_US_Satellite_Launched_512kb.mp4", "seconds": 169.54, "aired": "1958-02-03", "blurb": "A newsreel celebrates the successful launch of Explorer 1.", "hindsight": "Its measurements led to the discovery of the Van Allen radiation belts."},
+      {"title": "A Bomb Falls on Mars Bluff", "item": "1958-03-13_Dead_A-Bomb_Hits_US_Town", "file": "1958-03-13_Dead_A-Bomb_Hits_US_Town_512kb.mp4", "seconds": 115.51, "aired": "1958-03-13", "blurb": "Reports on an accidentally dropped atomic bomb near Florence, South Carolina.", "hindsight": "The conventional explosives detonated; there was no nuclear detonation."},
+      {"title": "X-15 Aloft", "item": "1959-06-11_X-15_Aloft", "file": "1959-06-11_X-15_Aloft_512kb.mp4", "seconds": 56.99, "aired": "1959-06-11", "blurb": "The X-15 research aircraft makes its first free flight, an unpowered glide.", "hindsight": "Later powered flights helped researchers learn about hypersonic flight and piloted entry from high altitude."},
+      {"title": "First Pictures: Yuri Gagarin", "item": "1961-04-19_First_Pictures", "file": "1961-04-19_First_Pictures_512kb.mp4", "seconds": 103.00, "aired": "1961-04-19", "blurb": "Newsreel footage of the Soviet welcome for Yuri Gagarin after Vostok 1.", "hindsight": "Gagarin completed a single orbit on April 12, 1961, becoming the first person in space."},
+      {"title": "Berlin: A City Divided", "item": "1961-08-31_Berlin", "file": "1961-08-31_Berlin_512kb.mp4", "seconds": 112.61, "aired": "1961-08-31", "blurb": "A report from Berlin soon after East Germany sealed the border between the city’s sectors.", "hindsight": "The border remained closed until November 1989; Germany reunified the following year."},
+      {"title": "Chimp into Space", "item": "1961-11-30_Chimp_into_space", "file": "1961-11-30_Chimp_into_space_512kb.mp4", "seconds": 99.57, "aired": "1961-11-30", "blurb": "Footage from the Mercury mission that sent Enos the chimpanzee into orbit.", "hindsight": "Enos flew two orbits. John Glenn became the first American to orbit Earth less than three months later."},
+      {"title": "Space Triumph: John Glenn", "item": "1962-02-22_Space_Triumph", "file": "1962-02-22_Space_Triumph_512kb.mp4", "seconds": 372.01, "aired": "1962-02-22", "blurb": "Coverage of John Glenn’s Friendship 7 flight and recovery.", "hindsight": "In 1998, Glenn returned to space aboard Discovery at age 77."},
+      {"title": "Telstar Brings the World Closer", "item": "1962-07-12_A_Day_in_History", "file": "1962-07-12_A_Day_in_History_512kb.mp4", "seconds": 197.47, "aired": "1962-07-12", "blurb": "A newsreel shows early television pictures relayed across the Atlantic by Telstar.", "hindsight": "Telstar was not geostationary, so each orbit afforded a short transmission window."},
+      {"title": "The Wall", "item": "1962-08-16_The_Wall", "file": "1962-08-16_The_Wall_512kb.mp4", "seconds": 102.90, "aired": "1962-08-16", "blurb": "Newsreel coverage of the Berlin Wall a year after construction began.", "hindsight": "What began as wire barriers grew into a fortified border with walls, guard towers and a patrol strip."}
     ]
   }
 ]
