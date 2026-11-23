@@ -8,13 +8,15 @@ Retro Airwaves is an independent alternative to [Spelunkr](https://spelunkr.tv/a
 
 ## Watch in a browser
 
-[Watch Retro Airwaves on GitHub Pages](https://gowanginc.github.io/retro-airwaves/web/). No Kodi installation is needed.
+[Watch Retro Airwaves on GitHub Pages](https://gowanginc.github.io/retro-airwaves/). No Kodi installation is needed.
 
-![Retro Airwaves in the browser, with the channel timeline and historical context for a Hindsight newsreel](screenshots/browser-guide.jpg)
+![Retro Airwaves in the 1930s Art Deco theme, with Settings below the player and a Hindsight newsreel beside it](screenshots/browser-guide.jpg)
 
 Choose a channel to join the program already in progress. The browser streams directly from the archives; if a stream is unavailable, use the program source link or try another channel.
 
 The browser guide shows a scrollable timeline and a program card with upcoming titles. Click a channel or an on-air listing to watch. Use **Now** to return to the current time, or filter by genre and search by title. **Catch up** plays at 1.25× until you reach live; **Go live** skips to the current position. **Watch elsewhere** offers a VLC playlist and an XMLTV guide.
+
+Open **Settings → Interface theme** below the player to choose from 12 era-inspired looks, from 1920s Silent Cinema to 2010s Streaming, or return to **Classic Retro Airwaves**. Your choice takes effect immediately and is saved in that browser. It does not change the channel schedule or the Kodi interface.
 
 ## Install on Kodi
 

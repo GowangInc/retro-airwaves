@@ -15,6 +15,99 @@
     --chan-w: 13.5rem; --row-h: 3.6rem; --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
     --stripe: linear-gradient(90deg, #b48ef0 0 14.28%, #7d6ce8 0 28.56%, #4f7fd8 0 42.84%, #4fb5c9 0 57.12%, #ffe066 0 71.4%, #f0a35e 0 85.68%, #e8609c 0);
   }
+
+  /* Era presets share the guide layout and never recolor the video. */
+  :root[data-theme] {
+    --well: color-mix(in srgb, var(--ink-2), #000 20%);
+    --panel-2: color-mix(in srgb, var(--panel), var(--gold) 10%);
+    --hot: color-mix(in srgb, var(--panel), var(--gold) 19%);
+    --line: color-mix(in srgb, var(--panel), var(--gold) 28%);
+    --line-hi: color-mix(in srgb, var(--panel), var(--gold) 54%);
+    --muted: color-mix(in srgb, #fff, var(--gold) 26%);
+    --dim: color-mix(in srgb, #fff, var(--panel) 34%);
+    --page: linear-gradient(var(--ink), var(--ink-2) 55%, var(--panel));
+    --title-face: var(--mono);
+    --corner: 0;
+  }
+  :root[data-theme="silent"] {
+    --gold: #f5e2be; --ink: #100d0a; --ink-2: #1a1712; --panel: #30271b;
+    --title-face: Georgia, serif;
+    --stripe: repeating-linear-gradient(90deg, #e3c893 0 8%, transparent 8% 12%);
+  }
+  :root[data-theme="deco"] {
+    --gold: #ffcf72; --ink: #09211f; --ink-2: #102e2a; --panel: #1d3d34;
+    --title-face: "Century Gothic", Futura, sans-serif;
+    --stripe: repeating-linear-gradient(135deg, #f9c264 0 .2rem, #102e2a .2rem .4rem, #d78a52 .4rem .55rem);
+  }
+  :root[data-theme="newsreel"] {
+    --gold: #f2c894; --ink: #141615; --ink-2: #252722; --panel: #3e3e32;
+    --title-face: Georgia, serif;
+    --stripe: linear-gradient(90deg, #a16b49 0 24%, #d6bf94 24% 48%, #b8ac87 48% 72%, #687663 72%);
+  }
+  :root[data-theme="monochrome"] {
+    --gold: #f2f2f2; --ink: #0b0c0d; --ink-2: #1d2022; --panel: #34393e;
+    --title-face: "Arial Narrow", Arial, sans-serif; --corner: .7rem;
+    --stripe: linear-gradient(90deg, #eaeaea 0 25%, #b8b8b8 25% 50%, #7f7f7f 50% 75%, #414141 75%);
+  }
+  :root[data-theme="space-age"] {
+    --gold: #9af4f3; --ink: #0a2030; --ink-2: #102d3d; --panel: #143e51;
+    --title-face: "Trebuchet MS", Arial, sans-serif; --corner: .95rem;
+    --stripe: linear-gradient(90deg, #8df3fa 0 45%, #f7f5d4 45% 68%, #ff8a6f 68%);
+  }
+  :root[data-theme="woodgrain"] {
+    --gold: #ffbf84; --ink: #241309; --ink-2: #341f15; --panel: #542f22;
+    --page: repeating-linear-gradient(90deg, #25140d 0 .16rem, #301910 .16rem .57rem, #28150e .57rem .8rem);
+    --title-face: Georgia, serif; --corner: .4rem;
+    --stripe: linear-gradient(90deg, #fead5b 0 33%, #d56a43 33% 66%, #94a268 66%);
+  }
+  :root[data-theme="teletext"] {
+    --gold: #f1ff75; --ink: #060811; --ink-2: #111831; --panel: #1d2c62;
+    --stripe: linear-gradient(90deg, #ff565b 0 20%, #f1ff75 20% 40%, #55ff88 40% 60%, #54efff 60% 80%, #ff74e2 80%);
+  }
+  :root[data-theme="amber"] {
+    --gold: #ffbd66; --ink: #100a05; --ink-2: #211307; --panel: #36220d;
+    --stripe: repeating-linear-gradient(90deg, #ffbd66 0 .6rem, transparent .6rem .78rem);
+  }
+  :root[data-theme="saturday"] {
+    --gold: #ffbafa; --ink: #251234; --ink-2: #402050; --panel: #55295f;
+    --title-face: "Trebuchet MS", sans-serif; --corner: .65rem;
+    --stripe: linear-gradient(90deg, #ff71bd 0 25%, #ffbe69 25% 50%, #81efde 50% 75%, #7f9afe 75%);
+  }
+  :root[data-theme="cable"] {
+    --gold: #ffe46b; --ink: #060d2a; --ink-2: #101d48; --panel: #17347b;
+    --title-face: "Arial Narrow", Arial, sans-serif;
+    --stripe: linear-gradient(90deg, #5d94fb 0 66%, #ffe46b 66%);
+  }
+  :root[data-theme="satellite"] {
+    --gold: #c5e1ff; --ink: #0b1725; --ink-2: #18283b; --panel: #2b3e57;
+    --title-face: Verdana, sans-serif; --corner: .5rem;
+    --stripe: linear-gradient(#fafafa, #a8bbd0 48%, #476586 50%, #79adf2);
+  }
+  :root[data-theme="streaming"] {
+    --gold: #ff9eaa; --ink: #101012; --ink-2: #202023; --panel: #333136;
+    --title-face: system-ui, sans-serif; --corner: .6rem;
+    --stripe: linear-gradient(90deg, #f76b80, #a92c56);
+  }
+  :root[data-theme] { background: var(--ink); }
+  [data-theme] body { background: var(--page) fixed; }
+  [data-theme] .masthead { border-top-color: var(--gold); }
+  [data-theme] h1, [data-theme] .info h2 { font-family: var(--title-face); }
+  [data-theme] :is(.onair, .ticker, .search, .menu-panel, .g-head, .g-corner, .progress, .toast) { background: var(--well); }
+  [data-theme] .scroller { scrollbar-color: var(--line-hi) var(--well); }
+  [data-theme] .info-head { background: linear-gradient(90deg, var(--hot), transparent); }
+  [data-theme] .progress > i { background: var(--gold); }
+  [data-theme] .g-track { background: repeating-linear-gradient(90deg, transparent 0 calc(var(--slot-w) - 1px), var(--line) 0 var(--slot-w)); }
+  [data-theme] .g-row { border-bottom-color: var(--line); }
+  [data-theme] .g-chan:hover { background: var(--panel-2); }
+  [data-theme] .cell { background: color-mix(in srgb, var(--g) 11%, var(--panel)); }
+  [data-theme] .cell.onair { background: color-mix(in srgb, var(--g) 18%, var(--panel-2)); }
+  [data-theme] .cell:hover, [data-theme] .cell.match { background: color-mix(in srgb, var(--g) 24%, var(--panel)); }
+  [data-theme] .cell.past { opacity: .75; }
+  [data-theme] .past-mask { background: rgb(0 0 0 / .14); }
+  [data-theme] .btn.primary:hover { background: color-mix(in srgb, var(--gold), #fff 32%); }
+  [data-theme] :is(.btn, .monitor, .info, .onair, .menu-panel) { border-radius: var(--corner); }
+  [data-theme] :is(.card-msg, .lower-third) { background: color-mix(in srgb, var(--ink) 90%, transparent); }
+  [data-theme] .upnext li { border-color: var(--line); }
   * { box-sizing: border-box; }
   html { background: #1a1036; }
   body { margin: 0; min-height: 100vh; color: #fff; background: linear-gradient(#211340, #26193d 55%, #5a2c22) fixed; font: 1rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -92,6 +185,14 @@
   .live[data-state="behind"] { color: var(--gold); border-color: var(--gold); }
   .live[data-state="behind"]::before { background: var(--gold); }
   .live[data-state="catching"]::before { background: #7dff9b; animation: blink .6s steps(1) infinite; }
+
+  #settings-dialog { color: inherit; background: var(--ink-2); border: 1px solid var(--line-hi); width: min(25rem, calc(100% - 2rem)); max-height: calc(100% - 2rem); padding: 1.25rem; }
+  #settings-dialog::backdrop { background: rgb(0 0 0 / .72); }
+  #settings-dialog h2 { margin: 0 0 1rem; color: var(--gold); }
+  #settings-dialog label { display: block; margin-bottom: .4rem; }
+  #theme-select { width: 100%; padding: .5rem; min-height: 2.5rem; border: 1px solid var(--line-hi); background: var(--panel); color: inherit; font: inherit; }
+  #settings-dialog p { margin: .6rem 0 1rem; color: var(--muted); font-size: .9rem; }
+  #settings-dialog form { text-align: right; }
 
   .info { background: var(--ink-2); border: 1px solid var(--line); display: flex; flex-direction: column; min-width: 0; }
   .info-head { display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: center; padding: .8rem 1rem; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(82,55,123,.6), transparent); }
@@ -213,6 +314,12 @@
     .search input { width: 8rem; }
     .vol { display: none; }
   }
+  @media (max-width: 26rem) {
+    .masthead { grid-template-columns: minmax(0, 1fr); }
+    .ticker { grid-row: 3; }
+    .onair { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: .75rem; }
+    .onair-label { grid-row: span 2; justify-content: flex-start; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .ticker-track, .onair-label::after, .live[data-state="catching"]::before { animation: none; }
     .lower-third, .osd, canvas.static { transition: none; }
@@ -262,6 +369,7 @@
         <button class="btn" id="golive" type="button" hidden title="Skip ahead to the live broadcast (L)">Go live</button>
         <span class="spacer"></span>
         <button class="btn hide-tv" id="crt" type="button" aria-pressed="false" title="CRT scanlines (C)">CRT</button>
+        <button class="btn" id="settings" type="button" aria-haspopup="dialog">Settings</button>
         <button class="btn" id="tvmode" type="button" aria-pressed="false" title="Prevue-style TV mode with an auto-scrolling guide (T)">TV mode</button>
         <button class="btn icon" id="fs" type="button" title="Fullscreen (F)" aria-label="Fullscreen">⛶</button>
       </div>
@@ -329,6 +437,27 @@
   </footer>
 </main>
 <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<dialog id="settings-dialog" aria-labelledby="settings-title">
+  <h2 id="settings-title">Settings</h2>
+  <label for="theme-select">Interface theme</label>
+  <select id="theme-select" aria-describedby="theme-help" autofocus>
+    <option value="classic">Classic Retro Airwaves</option>
+    <option value="silent">1920s · Silent Cinema</option>
+    <option value="deco">1930s · Art Deco</option>
+    <option value="newsreel">1940s · Newsreel</option>
+    <option value="monochrome">1950s · Monochrome TV</option>
+    <option value="space-age">1960s · Space Age</option>
+    <option value="woodgrain">1970s · Woodgrain</option>
+    <option value="teletext">1970s · Teletext</option>
+    <option value="amber">1980s · Amber Terminal</option>
+    <option value="saturday">1980s · Saturday Morning</option>
+    <option value="cable">1990s · Cable Guide</option>
+    <option value="satellite">2000s · Digital Satellite</option>
+    <option value="streaming">2010s · Streaming</option>
+  </select>
+  <p id="theme-help">Applies immediately and is saved in this browser.</p>
+  <form method="dialog"><button class="btn" type="submit">Done</button></form>
+</dialog>
 
 <script>
   'use strict';
@@ -350,6 +479,21 @@
     get(k, d) { try { const v = localStorage.getItem('airwaves.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
     set(k, v) { try { localStorage.setItem('airwaves.' + k, JSON.stringify(v)); } catch {} },
   };
+  const settingsDialog = $('#settings-dialog');
+  const themeSelect = $('#theme-select');
+  function applyTheme(theme) {
+    themeSelect.value = theme;
+    if (!themeSelect.value) themeSelect.value = 'classic';
+    if (themeSelect.value === 'classic') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = themeSelect.value;
+    $('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).getPropertyValue('--ink-2').trim();
+  }
+  applyTheme(store.get('theme', 'classic'));
+  themeSelect.onchange = () => {
+    applyTheme(themeSelect.value);
+    store.set('theme', themeSelect.value);
+  };
+  $('#settings').onclick = () => settingsDialog.showModal();
 
   function aired(p) {
     const a = p.aired;
@@ -999,7 +1143,7 @@
   };
   $('#find').addEventListener('input', e => { S.query = e.target.value; applyFilters(); });
   document.addEventListener('keydown', e => {
-    if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (settingsDialog.open || e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
     const k = e.key;
     if (/^[0-9]$/.test(k)) { numberKey(k); e.preventDefault(); return; }
     const inGrid = !!e.target.closest('.cell');
