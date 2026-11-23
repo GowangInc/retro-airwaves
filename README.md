@@ -10,7 +10,7 @@ Retro Airwaves is an independent alternative to [Spelunkr](https://spelunkr.tv/a
 
 [Watch Retro Airwaves on GitHub Pages](https://gowanginc.github.io/retro-airwaves/web/). No Kodi installation is needed.
 
-![Browser guide with a live channel timeline and program details](screenshots/browser-guide.jpg)
+![Retro Airwaves in the browser, with the channel timeline and historical context for a Hindsight newsreel](screenshots/browser-guide.jpg)
 
 Choose a channel to join the program already in progress. The browser streams directly from the archives; if a stream is unavailable, use the program source link or try another channel.
 
@@ -32,9 +32,9 @@ The first six channels are **Kids Club** (ranger activities and animation), **St
 
 Channels 19–23 are **Fright Night** (classic horror), **Strange Tales** (scripted *One Step Beyond* episodes, including *Dead Ringer* and *Anniversary of a Murder*), **Prime Time** (vintage sitcoms), **Commercial Break** (classic TV ads), and **Hindsight** (newsreels with historical context). Strange Tales does not carry the *Unsolved Mysteries* series.
 
-![A frame from the 1941 Superman cartoon playing fullscreen in Kodi](screenshots/playback.jpg)
+![A reel-to-reel recorder in a black-and-white episode of One Step Beyond playing fullscreen in Kodi](screenshots/playback.jpg)
 
-Playback example: [Superman (1941)](https://archive.org/details/superman_1941), marked public domain by the Internet Archive item.
+Playback example: [*One Step Beyond: The Bride Possessed*](https://archive.org/details/OSB-TheBridePossessed) on Strange Tales (channel 20). The Internet Archive item marks the episode public domain.
 
 ## Develop
 
