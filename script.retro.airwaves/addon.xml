@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="script.retro.airwaves" name="Retro Airwaves" version="1.2.0" provider-name="GowangInc">
+<addon id="script.retro.airwaves" name="Retro Airwaves" version="1.4.0" provider-name="GowangInc">
   <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>
   <extension point="xbmc.python.script" library="default.py" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Tune into always-running channels of archival film.</summary>
-    <description lang="en_GB">Browse a now-and-next guide, then join a channel already in progress. Videos stream directly from the Internet Archive and Wikimedia Commons.</description>
+    <description lang="en_GB">See what’s playing now, up next, and later, then join channels already in progress. The lineup includes children’s, history, nature, and science programming from open archival sources.</description>
     <platform>all</platform>
   </extension>
 </addon>

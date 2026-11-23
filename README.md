@@ -1,10 +1,14 @@
 # Retro Airwaves
 
-Retro Airwaves is a Kodi-native alternative to [Spelunkr](https://spelunkr.tv/app). It has 12 independently scheduled channels of archival film and television. It does not call Spelunkr, require an account, or run a server.
+Retro Airwaves is an independent alternative to [Spelunkr](https://spelunkr.tv/app), with the same 18-channel lineup in Kodi and the browser. Both guides show archival film and television on a shared clock. Neither uses Spelunkr or requires an account.
 
-![Retro Airwaves in Kodi: eight visible rows in a purple-and-blue cable guide with channel badges, current programs, and upcoming times](screenshots/guide.jpg)
+![Retro Airwaves in Kodi: eight visible channels with Now Playing, Up Next, and Later columns](screenshots/guide.jpg)
 
-[See the guide scrolled to channels 5–12](screenshots/guide-scrolled.jpg).
+[See the guide scrolled to channels 11–18](screenshots/guide-scrolled.jpg).
+
+## Watch in a browser
+
+Serve the repository root with any static HTTP server and open `/web/`. Choose a channel to join the program already in progress. The browser streams directly from the archives; if a stream is unavailable, use the program source link or try another channel. No Kodi installation is needed.
 
 ## Install on Kodi
 
@@ -12,13 +16,13 @@ Retro Airwaves is a Kodi-native alternative to [Spelunkr](https://spelunkr.tv/ap
 2. In Kodi, open **Add-ons → Add-on browser → Install from zip file** and pick the downloaded ZIP. If Kodi requires **Unknown sources**, enable it only long enough to install the ZIP.
 3. Open **Retro Airwaves** from **Program add-ons**. If your skin supports Home shortcuts, add `RunAddon(script.retro.airwaves)`.
 
-Tested on Kodi 20.5 (Nexus). The add-on uses Kodi's player to stream directly from the Internet Archive and Wikimedia Commons. No account, separate server, or IPTV configuration is required. The ZIP does not change your skin or existing Live TV setup.
+Tested on Kodi 20.5 (Nexus). The add-on uses Kodi's player to stream from the Internet Archive, Wikimedia Commons, NOAA, and the National Park Service. No account, separate server, or IPTV configuration is required. The ZIP does not change your skin or existing Live TV setup.
 
 ## Use the guide
 
-The guide shows eight channels at a time. Use **Up/Down** to scroll the full lineup, **OK** to tune in at the scheduled point, and **Stop** to return to the guide. **Back** closes the guide. Each channel shows its current and upcoming programs in local time.
+The guide shows eight channels at a time. Each row shows **Now Playing**, **Up Next**, and **Later** (the program after Up Next), with start times in local time. Use **Up/Down** to scroll and **OK** to tune in live. **Stop** returns to the guide; **Back** closes it.
 
-The lineup includes Oddities, Space, Toons, In Motion, Retro Tech, Field Notes, Westerns, Film Noir, Sci-Fi, Silent Film (comedy), Newsreels, and Classroom.
+The first six channels are **Kids Club** (ranger activities and animation), **Storybook** (fairy tales and animated stories), **Time Travel** (history), **Ocean Life** (marine science), **Deep Time** (fossils and geology), and **Science Lab** (NASA education shows). The rest of the lineup includes Oddities, Space, Toons, In Motion, Retro Tech, Field Notes, Westerns, Film Noir, Sci-Fi, Silent Film, Newsreels, and Classroom. The guide is not a parental-control or ratings filter.
 
 ![A frame from the 1941 Superman cartoon playing fullscreen in Kodi](screenshots/playback.jpg)
 

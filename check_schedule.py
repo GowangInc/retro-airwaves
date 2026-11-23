@@ -23,6 +23,9 @@ def main():
             assert just_before.program == program and just_before.next_program == next_program
             assert abs(just_before.ends_at - cut) < 0.001
             assert just_after.program == next_program and abs(just_after.starts_at - cut) < 0.001
+            later = tune(channel, cut + next_program['seconds'] + 0.25)
+            assert just_before.later_program == later.program
+            assert abs(just_before.later_starts_at - later.starts_at) < 0.001
             anchor = cut
         assert tune(channel, EPOCH - channel['phase'] - 0.25).program == programs[-1]
     urls = [media_url(p) for c in channels for p in c['programs']]

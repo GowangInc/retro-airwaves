@@ -1,5 +1,86 @@
 [
   {
+    "name": "Kids Club",
+    "icon": "kids-club",
+    "phase": 18427,
+    "programs": [
+      {"title": "Wing It!", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/38/WING_IT%21_-_Blender_Open_Movie-full_movie.webm/WING_IT%21_-_Blender_Open_Movie-full_movie.webm.480p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:WING_IT!_-_Blender_Open_Movie-full_movie.webm", "credit": "Blender Studio · CC BY 4.0", "seconds": 237.945},
+      {"title": "The Fun of Making Friends", "item": "fun_of_making_friends", "file": "fun_of_making_friends.mp4", "seconds": 560.04},
+      {"title": "Preschoolers: Junior Ranger", "url": "https://www.nps.gov/nps-audiovideo/legacy/sama/D776AD64-A083-7C34-0174D53834286C43/sama-cmssubtitles_1280x720.mp4", "source_page": "https://www.nps.gov/media/video/view.htm?id=D776AD64-A083-7C34-0174D53834286C43", "credit": "National Park Service", "seconds": 452.587},
+      {"title": "Making a Dragonfly Puppet", "url": "https://www.nps.gov/nps-audiovideo/audiovideo/15a12a94-db47-4906-b7d2-62f181f84124720p.mp4", "source_page": "https://www.nps.gov/media/video/view.htm?id=40DD6189-C83B-4937-8F27-E7766015283A", "credit": "National Park Service / Liz Nelson", "seconds": 993.417},
+      {"title": "Preschoolers: Birds", "url": "https://www.nps.gov/nps-audiovideo/legacy/sama/40382811-9692-84F5-70B2305F17B7F759/sama-BirdsCMS_1280x720.mp4", "source_page": "https://www.nps.gov/media/video/view.htm?id=40382811-9692-84F5-70B2305F17B7F759", "credit": "National Park Service", "seconds": 914.355},
+      {"title": "Investigating Trees", "url": "https://www.nps.gov/nps-audiovideo/legacy/piro/F095A256-ED1F-E829-49D0EE1BD901AECE/piro-ParkRangerPlaytime-InvestigatingTrees1_1280x720.mp4", "source_page": "https://www.nps.gov/media/video/view.htm?id=F095A256-ED1F-E829-49D0EE1BD901AECE", "credit": "National Park Service / Kendra Kersting", "seconds": 424.321},
+      {"title": "Leave No Trace", "url": "https://www.nps.gov/nps-audiovideo/audiovideo/31879047-7f35-4c64-a02b-23f59e7dcb97720p.mp4", "source_page": "https://www.nps.gov/media/video/view.htm?id=56A4F0A5-7787-422D-A634-1B49C4FA9554", "credit": "National Park Service / Dave Wright and Liz Nelson", "seconds": 277.833}
+    ]
+  },
+  {
+    "name": "Storybook",
+    "icon": "storybook",
+    "phase": 20101,
+    "programs": [
+      {"title": "Ada & Zangemann", "item": "ada-zangemann-a-tale-of-software-skateboards-and-raspberry-ice-cream", "file": "Ada_Zangemann-A_Tale_of_Software_Skateboards_and_Raspberry_Ice_Cream.ia.mp4", "credit": "Free Software Foundation Europe / Matthias Kirschner / Sandra Brandstätter / Monströös · CC BY-SA 4.0", "seconds": 1892.65},
+      {"title": "Pepper & Carrot: The Potion Contest", "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Morevna_Project_-_Pepper%26Carrot_%28animated_comic%29_-_Episode_6_-_The_Potion_Contest.webm", "source_page": "https://commons.wikimedia.org/wiki/File:Morevna_Project_-_Pepper%26Carrot_(animated_comic)_-_Episode_6_-_The_Potion_Contest.webm", "credit": "Morevna Project / Nikolai Mamashev / David Revoy · CC BY-SA 4.0", "seconds": 454.928},
+      {"title": "Redwood Forest Puppet Show", "url": "https://www.nps.gov/nps-audiovideo/audiovideo/b5954bd9-f468-473b-9a0a-2d175669080a720p.mp4", "source_page": "https://www.nps.gov/media/video/view.htm?id=c85741b0-8666-49a6-b37a-9c1c7a824d13", "credit": "National Park Service / Ranger Stephanie", "seconds": 387.988},
+      {"title": "Spring", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a5/Spring_-_Blender_Open_Movie.webm/Spring_-_Blender_Open_Movie.webm.480p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:Spring_-_Blender_Open_Movie.webm", "credit": "Andy Goralczyk / Blender Foundation · CC BY 4.0", "seconds": 464.134},
+      {"title": "A Modern Cinderella", "item": "a-modern-cinderella-1910", "file": "a-modern-cinderella-1910-hbr.mp4", "seconds": 996.70},
+      {"title": "Somewhere in Dreamland", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/2e/Somewhere_in_Dreamland.webm/Somewhere_in_Dreamland.webm.480p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:Somewhere_in_Dreamland.webm", "credit": "Fleischer Studios / Paramount Pictures · Public domain", "seconds": 548.057},
+      {"title": "Alice in Wonderland (1903)", "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/18/Alice_In_Wonderland_%281903%29_-_Public_Domain_Silent_Fantasy.webm/Alice_In_Wonderland_%281903%29_-_Public_Domain_Silent_Fantasy.webm.240p.vp9.webm", "source_page": "https://commons.wikimedia.org/wiki/File:Alice_In_Wonderland_(1903)_-_Public_Domain_Silent_Fantasy.webm", "credit": "Wikimedia Commons · Public domain", "seconds": 500.944}
+    ]
+  },
+  {
+    "name": "Time Travel",
+    "icon": "time-travel",
+    "phase": 22303,
+    "programs": [
+      {"title": "Island of Hope, Island of Tears", "item": "gov.ntis.ava15996vnb1", "file": "ava15996vnb1_512kb.mp4", "seconds": 1704.67},
+      {"title": "Frederick Douglass: Fighter for Freedom", "item": "gov.ntis.ava16378vnb1", "file": "gov.ntis.ava16378vnb1_512kb.mp4", "seconds": 1144.61},
+      {"title": "The Cummington Story", "item": "gov.archives.arc.46921", "file": "gov.archives.arc.46921_512kb.mp4", "seconds": 1194.26},
+      {"title": "National Parks: An American Legacy", "item": "gov.ntis.ava19377vnb1", "file": "gov.ntis.ava19377vnb1_512kb.mp4", "seconds": 1773.27},
+      {"title": "Hidden Treasures: Landscape Archaeology", "item": "NasaConnect-HiddenTreasuresLandscapeArcheology", "file": "NASAConnect-HiddenTreasures.mp4", "seconds": 1695.91}
+    ]
+  },
+  {
+    "name": "Ocean Life",
+    "icon": "ocean-life",
+    "phase": 25457,
+    "credit": "NOAA Ocean Exploration · Deep-Sea Dialogues",
+    "programs": [
+      {"title": "Deep-Sea Corals", "url": "https://oceanexplorer.noaa.gov/wp-content/uploads/2022/03/corals-640x360-1.mp4", "source_page": "https://oceanexplorer.noaa.gov/multimedia/edu-resources-dsd-corals/", "seconds": 791.391},
+      {"title": "Cold Seeps", "item": "noaa-oe-video-edu-resources-dsd-cold-seeps", "file": "cold-seeps-1920x1080-1.mp4", "seconds": 646.61},
+      {"title": "Bioluminescence", "item": "noaa-oe-video-edu-resources-dsd-bioluminescence", "file": "bioluminescence-1920x1080-1.mp4", "seconds": 483.75},
+      {"title": "Hydrothermal Vents", "item": "noaa-oe-video-edu-resources-dsd-hydrothermal-vents", "file": "hydrothermal-vents-1920x1080-1.mp4", "seconds": 566.87},
+      {"title": "Seamounts", "item": "noaa-oe-video-edu-resources-dsd-seamounts", "file": "seamounts-1920x1080-1.mp4", "seconds": 477.03},
+      {"title": "Underwater Robots", "item": "noaa-oe-video-edu-resources-dsd-underwater-robots", "file": "robots-1920x1080-1.mp4", "seconds": 670.54}
+    ]
+  },
+  {
+    "name": "Deep Time",
+    "icon": "deep-time",
+    "phase": 27211,
+    "programs": [
+      {"title": "Of Ice and Fire: The Mono Basin", "item": "gov.ntis.a19389vnb1", "file": "a19389vnb1_512kb.mp4", "credit": "USDA Forest Service", "seconds": 1252.09},
+      {"title": "Fossils Rock!", "item": "nps-video-hocu-fossils-rock", "file": "hocu-Myra-Fossils_1280x720.mp4", "credit": "National Park Service / Tom Engberg", "seconds": 357.44},
+      {"title": "Yellowstone’s Ancient Volcanoes", "item": "usgs-volcano-yellowstone-sequence-02-no-captions-mp4", "file": "Sequence_02_no_captions.mp4", "credit": "USGS Volcano Hazards Program", "seconds": 212.14},
+      {"title": "Introduction to Teton Geology", "item": "nps-video-grte-introduction-to-teton-geology", "file": "grte-Geology_Intro_2011_480x270.mp4", "credit": "National Park Service", "seconds": 161.29},
+      {"title": "Measuring Moving Mountains", "item": "usgs-volcano-yellowstone-january-2026---continuous-gps-1-mp4", "file": "January_2026_-_Continuous_GPS_1.mp4", "credit": "USGS Volcano Hazards Program", "seconds": 238.14},
+      {"title": "Living Fossils", "item": "noaa-oe-video-living-fossils", "file": "dive04-living-fossils-1280x720-1.ia.mp4", "credit": "NOAA Ocean Exploration", "seconds": 91.03}
+    ]
+  },
+  {
+    "name": "Science Lab",
+    "icon": "science-lab",
+    "phase": 29879,
+    "credit": "NASA Langley Office of Education",
+    "programs": [
+      {"title": "The Case of the Powerful Pulleys", "item": "NasaSciFiles-TheCaseOfThePowerfulPulleys", "file": "NASASF-ThePowerfulPulleys.mp4", "seconds": 3540.67},
+      {"title": "The Case of the Challenging Flight", "item": "NasaSciFiles-TheCaseOfTheChallengingFlight", "file": "NASAWF-TheCaseOfTheChallengingFlight.mp4", "seconds": 3503.08},
+      {"title": "Measurement, Ratios and Graphing", "item": "NasaConnect-MeasurementRatiosAndGraphing321Crash", "file": "NASAConnect-MeasurementRatiosAndGraphing-321Crash.mp4", "seconds": 1710.74},
+      {"title": "Science of Sound", "item": "NasaConnect-Qts-ScienceOfSound", "file": "NASAQTS-ScienceOfSound.mp4", "seconds": 304.17},
+      {"title": "Mirrors, Light and Illusion", "item": "NasaSciFiles-MirrorsLightAndIllusion", "file": "NASAWF-MirrorsLightAndIllusion.mp4", "seconds": 316.92},
+      {"title": "Fibonacci Sequence Activity", "item": "NasaConnect-Mtf-FibonacciSequenceActivity", "file": "NASAMTF-FibonacciSequenceActivity.mp4", "seconds": 199.29}
+    ]
+  },
+  {
     "name": "Oddities",
     "icon": "oddities",
     "phase": 0,

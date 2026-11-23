@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Retro Airwaves · Live Guide</title>
+<style>
+  :root { color-scheme: dark; --gold: #ffe88a; --ink: #191235; --panel: #1c2455; --line: #8274ae; --muted: #d7ceed; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; color: #fff; background: linear-gradient(#211340, #26193d 55%, #673221) fixed; font: 1rem/1.45 system-ui, sans-serif; }
+  main { max-width: 94rem; margin: auto; padding: clamp(1rem, 3vw, 2.5rem); }
+  .masthead, .player { padding: clamp(1rem, 2vw, 1.5rem); background: var(--ink); border: 1px solid var(--line); }
+  .masthead { display: flex; flex-wrap: wrap; gap: .5rem 2rem; align-items: end; justify-content: space-between; border-top: .3rem solid #ba85d0; }
+  h1 { margin: 0; color: var(--gold); font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.05; text-transform: uppercase; letter-spacing: .035em; }
+  .eyebrow, .clock, th, .number, .time { font-family: ui-monospace, monospace; }
+  .eyebrow, .clock { margin: .4rem 0 0; color: var(--muted); }
+  .clock { color: var(--gold); }
+  .layout { display: grid; gap: 1rem; margin-top: 1rem; }
+  .player { min-width: 0; align-self: start; }
+  .player h2 { margin: 0; font-size: 1.2rem; }
+  video { display: block; width: 100%; max-height: 52vh; margin-top: .8rem; background: #090713; }
+  [hidden] { display: none; }
+  a { color: var(--gold); }
+  .guide { overflow: auto; min-width: 0; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; min-width: 44rem; table-layout: fixed; }
+  th, td { text-align: left; vertical-align: top; border: 1px solid #6873a5; padding: .48rem .65rem; }
+  thead { color: var(--gold); background: var(--ink); }
+  th:first-child { width: 24%; }
+  tbody tr { background: var(--panel); }
+  tbody tr:nth-child(even) { background: #242c5d; }
+  tbody tr:focus-within, tbody tr[data-selected] { background: #52377b; }
+  .pick { display: flex; gap: .55rem; align-items: baseline; min-height: 2rem; width: 100%; padding: .2rem 0; border: 0; color: var(--gold); background: transparent; text-align: left; font: inherit; cursor: pointer; }
+  .pick:hover { text-decoration: underline; }
+  .number, .time { font-size: .82rem; }
+  .time { display: block; color: var(--muted); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  @media (min-width: 73rem) {
+    .layout { grid-template-columns: minmax(44rem, 2fr) minmax(19rem, 1fr); }
+    .player { position: sticky; top: 1rem; grid-area: 1 / 2; }
+    .guide { grid-area: 1 / 1; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <div><h1>Retro Airwaves</h1><p class="eyebrow">The independent archive television guide</p></div>
+    <p class="clock">ON AIR · <time id="clock"></time></p>
+  </header>
+  <div class="layout">
+    <section class="player" aria-labelledby="watch-title" id="player">
+      <h2 id="watch-title">Watch live</h2>
+      <video controls playsinline preload="none" hidden aria-labelledby="watch-title"></video>
+      <p id="status" role="status">Choose a channel to join the program in progress.</p>
+      <a id="source" href="https://archive.org/" target="_blank" rel="noopener" hidden>Program source ↗</a>
+    </section>
+    <section class="guide" aria-label="Channel guide" tabindex="0">
+      <table aria-label="Program schedule in local time">
+        <thead><tr><th scope="col">Channel</th><th scope="col">Now Playing</th><th scope="col">Up Next</th><th scope="col">Later</th></tr></thead>
+        <tbody id="channels"></tbody>
+      </table>
+    </section>
+  </div>
+</main>
+<script>
+  'use strict';
+  const EPOCH = 1767225600; // Same UTC epoch and duration rules as the Kodi add-on.
+  const now = () => Date.now() / 1000;
+  const localTime = new Intl.DateTimeFormat(undefined, {hour: '2-digit', minute: '2-digit', hourCycle: 'h23'});
+  const timeAt = seconds => localTime.format(seconds * 1000);
+  const video = document.querySelector('video');
+  const playbackStatus = document.querySelector('#status');
+  const source = document.querySelector('#source');
+  const watchTitle = document.querySelector('#watch-title');
+  const clock = document.querySelector('#clock');
+  let active, rollover;
+
+  function schedule(channel, t) {
+    const {programs, phase, period} = channel;
+    let elapsed = (t - EPOCH + phase) % period;
+    if (elapsed < 0) elapsed += period;
+    let i = 0;
+    while (i < programs.length - 1 && elapsed >= programs[i].seconds) elapsed -= programs[i++].seconds;
+    const program = programs[i], next = programs[(i + 1) % programs.length];
+    const start = t - elapsed, end = start + program.seconds;
+    return {program, next, later: programs[(i + 2) % programs.length], start, end};
+  }
+
+  const mediaUrl = p => p.url || `https://archive.org/download/${encodeURIComponent(p.item)}/${encodeURIComponent(p.file)}`;
+
+  function tune(row) {
+    clearTimeout(rollover);
+    if (active && active.row !== row) {
+      active.row.button.setAttribute('aria-pressed', 'false');
+      delete active.row.tr.dataset.selected;
+    }
+    const slot = schedule(row.channel, now());
+    const current = active = {row, slot};
+    row.button.setAttribute('aria-pressed', 'true');
+    row.tr.dataset.selected = '';
+    watchTitle.textContent = `${row.channel.name} · ${slot.program.title}`;
+    playbackStatus.textContent = 'Tuning in…';
+    source.href = slot.program.source_page || `https://archive.org/details/${encodeURIComponent(slot.program.item)}`;
+    source.hidden = video.hidden = false;
+    video.src = mediaUrl(slot.program);
+    video.play().catch(error => {
+      if (active !== current || error.name === 'AbortError') return;
+      if (error.name === 'NotAllowedError') playbackStatus.textContent = 'Press Play in the video controls.';
+      else streamError();
+    });
+  }
+
+  function streamError() {
+    playbackStatus.textContent = 'This stream could not play. Try another channel or open the program source.';
+  }
+  video.addEventListener('error', streamError);
+  video.addEventListener('loadedmetadata', () => {
+    const t = now();
+    if (t >= active.slot.end) { tune(active.row); return; }
+    video.currentTime = Math.max(0, t - active.slot.start);
+  });
+  video.addEventListener('playing', () => { playbackStatus.textContent = 'Playing live'; });
+  video.addEventListener('ended', () => {
+    const {row, slot} = active;
+    const wait = slot.end - now();
+    if (wait > 3) { playbackStatus.textContent = 'The stream ended early. Select the channel again to retune.'; return; }
+    playbackStatus.textContent = 'Waiting for the next program…';
+    rollover = setTimeout(() => tune(row), Math.max(0, Math.ceil(wait * 1000)) + 50);
+  });
+
+  function makeRow(channel, index) {
+    const tr = document.createElement('tr');
+    const label = document.createElement('th');
+    label.scope = 'row';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'pick';
+    button.setAttribute('aria-pressed', 'false');
+    const number = document.createElement('span');
+    number.className = 'number';
+    number.textContent = String(index + 1).padStart(2, '0');
+    button.append(number, channel.name);
+    label.append(button);
+    tr.append(label);
+    const cells = Array.from({length: 3}, () => {
+      const td = tr.insertCell();
+      const title = document.createElement('span');
+      const time = document.createElement('time');
+      time.className = 'time';
+      td.append(title, time);
+      return {title, time};
+    });
+    const row = {channel, tr, button, cells};
+    button.addEventListener('click', () => {
+      tune(row);
+      if (video.getBoundingClientRect().bottom < 0) {
+        document.querySelector('#player').scrollIntoView({block: 'start'});
+        video.focus();
+      }
+    });
+    return row;
+  }
+
+  function refresh(rows) {
+    const t = now();
+    clock.textContent = timeAt(t);
+    clock.dateTime = new Date(t * 1000).toISOString();
+    for (const row of rows) {
+      const s = schedule(row.channel, t);
+      const key = Math.round(s.start * 1000);
+      if (key === row.startKey) continue;
+      row.startKey = key;
+      [s.program, s.next, s.later].forEach((program, i) => {
+        const {title, time} = row.cells[i];
+        const at = [s.start, s.end, s.end + s.next.seconds][i];
+        title.textContent = program.title;
+        time.textContent = `${i === 0 ? 'Since' : 'At'} ${timeAt(at)}`;
+        time.dateTime = new Date(at * 1000).toISOString();
+      });
+    }
+  }
+
+  async function openGuide() {
+    const catalog = location.pathname === '/retro-airwaves/' ? './channels.json' : '../script.retro.airwaves/resources/channels.json';
+    const response = await fetch(catalog);
+    if (!response.ok) throw new Error(`Catalog: ${response.status}`);
+    const channels = await response.json();
+    const rows = channels.map((channel, i) => makeRow({...channel, period: channel.programs.reduce((sum, p) => sum + p.seconds, 0)}, i));
+    document.querySelector('#channels').append(...rows.map(row => row.tr));
+    refresh(rows);
+    setInterval(() => refresh(rows), 1000);
+  }
+  openGuide().catch(() => { playbackStatus.textContent = 'The channel guide could not load. Reload the page to try again.'; });
+</script>
+</body>
+</html>

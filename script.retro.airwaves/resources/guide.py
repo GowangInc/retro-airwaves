@@ -45,6 +45,8 @@ class Guide(xbmcgui.WindowXML):
             item.setProperty('Since', datetime.fromtimestamp(slot.starts_at).strftime('%H:%M'))
             item.setProperty('UpNext', slot.next_program['title'])
             item.setProperty('NextAt', datetime.fromtimestamp(slot.ends_at).strftime('%H:%M'))
+            item.setProperty('Later', slot.later_program['title'])
+            item.setProperty('LaterAt', datetime.fromtimestamp(slot.later_starts_at).strftime('%H:%M'))
 
     def onClick(self, control_id):
         if control_id == CHANNELS:

@@ -9,6 +9,11 @@ class Slot(NamedTuple):
     next_program: dict
     starts_at: float
     ends_at: float
+    later_program: dict
+
+    @property
+    def later_starts_at(self):
+        return self.ends_at + self.next_program['seconds']
 
 
 def tune(channel, now):
@@ -19,7 +24,9 @@ def tune(channel, now):
         duration = program['seconds']
         if pos < duration:
             start = now - pos
-            return Slot(program, programs[(index + 1) % len(programs)], start, start + duration)
+            count = len(programs)
+            return Slot(program, programs[(index + 1) % count], start, start + duration,
+                        programs[(index + 2) % count])
         pos -= duration
 
 
